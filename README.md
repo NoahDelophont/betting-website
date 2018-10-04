@@ -4,7 +4,7 @@
 
 ### Composition de l'équipe
 
-| Nom          | PrÃ©nom      | Email                         |
+| Nom          | Prénom      | Email                         |
 | -------------|-------------|-------------------------------|
 | ** | ** | ** |
 | ** | ** | ** |
@@ -15,4 +15,4 @@
 
 ### Sujet : 
 
-### Adresse du backlog :
+### Adresse du backlog : https://trello.com/b/ZZtiqz6T/backlog-produit

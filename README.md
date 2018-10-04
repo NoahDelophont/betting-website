@@ -1,8 +1,8 @@
-# Groupe nÂ°XX
+# Groupe n°11
 
-## RÃ©servÃ© au cours
+## Réservé au cours
 
-### Composition de l'Ã©quipe
+### Composition de l'équipe
 
 | Nom          | PrÃ©nom      | Email                         |
 | -------------|-------------|-------------------------------|

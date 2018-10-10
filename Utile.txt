@@ -1,0 +1,27 @@
+php ./bin/console doctrine:schema:update --force
+
+Pull : mettre à jour votre dépôt local
+
+Push : envoie des fichiers du head vers le dépôt à distance
+
+Commit : valide les chgmts proposes apres un git add (ajouter au head=espace de transit pour vos fichiers)
+
+Fetch : extraire tous les fichiers du dépôt distabt qui ne sont pas actuellement dans le répertoire de travail local
+
+Clone : creer une copie local
+
+Checkout : se déplacer (et creer) de branch en branch (utilisees pour dvp des fonctionnalités isolées des autres)
+
+Branch : supprime, repertorie ou crée branch
+
+Merge : fusionner une autre branch avec la branch active
+
+Rebase : déplace la liste des commits/ deplace les branch non merge/ réapplications des commits sur une autre brznche
+
+Add: proposer un changement qui se place dans l'index = espace de transit avant le head
+
+Init : init 
+
+Squash : fusionner commits
+
+Stash : changer de branch meme si on n'a pas fini le boulot (remisage) (aide à enregistrer les changements qii ne doivent pas être commit immédiatement

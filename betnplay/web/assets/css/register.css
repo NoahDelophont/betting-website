@@ -6,6 +6,7 @@
 
 body {
     background-color: #f0f0eb;
+    height: 100vh;
 }
 
 header {
@@ -16,19 +17,87 @@ header {
     margin: 0;
     padding: 15px 0 15px 0;
     text-align: center;
+    height: 50px;
 }
 
 #authentication-button {
     display: inline;
     font-size: 15px;
-    position: relative;
+    position: absolute;
     border: 1px solid black;
     padding: 5px 15px 5px 15px;
     border-radius: 10px;
     background-color: #f0f0eb;
+    right: 15px;
+    top: 25px;
 }
 
 header #authentication-button a {
     color: #2F312C;
     text-decoration: none;
+}
+
+#image-registration {
+    width: 40%;
+    overflow-y: hidden;
+}
+
+#image-registration img {
+    width: 100%;
+}
+
+#form {
+    display: inline-block;
+    width: 60%;
+}
+
+#form h3 {
+    color: #2F312C;
+    font-size: 30px;
+    margin: 50px 100px 0 100px;
+}
+
+#form-image-container {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    height: calc(100vh - 80px);
+}
+
+#form form {
+    margin: 20px 50px 0 50px;
+}
+
+#form form label  {
+    color: #2F312C;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#form form div {
+    display: inline-block;
+    margin: 10px 15px 10px 15px;
+}
+
+#form form input {
+    width: 300px;
+    height: 30px;
+    color: #086C50;
+    border: 1px solid #E6DBDA;
+}
+
+#form form input[type="submit"] {
+    background-color: #086C50;
+    color: white;
+    width: unset;
+    height: unset;
+    padding: 10px 17px 10px 17px;
+    border-radius: 17px;
+    cursor: pointer;
+    border-color: #086C50;
+}
+
+#submit-section {
+    width: calc(100% - 30px);
+    text-align: center;
 }

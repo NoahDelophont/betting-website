@@ -8,6 +8,16 @@
     Nom du site
 {% endblock %}
 
+{% block image %}
+    <div id="image-registration">
+        <img src="{{ asset('assets/images/money.png') }}" alt="money" />
+    </div>
+{% endblock %}
+
+{%  block form_title %}
+    Inscrivez vous ! C'est gratuit et ça le restera toujours
+{%  endblock %}
+
 {% block fos_user_content %}
     {% include "@FOSUser/Registration/register_content.html.twig" %}
 {% endblock fos_user_content %}

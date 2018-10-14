@@ -81,7 +81,9 @@ header #authentication-button a {
 }
 
 #form form input {
-    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 280px;
     height: 30px;
     color: #086C50;
     margin-bottom: 10px;

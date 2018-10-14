@@ -9,14 +9,22 @@
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+    <div>
+        <label for="username">{{ 'security.login.username'|trans }}</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+    </div>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+    <div>
+        <label for="password">{{ 'security.login.password'|trans }}</label>
+        <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+    </div>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    <div class="submit-section">
+        <label for="remember_me"><input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        {{ 'security.login.remember_me'|trans }}</label>
+    </div>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <div class="submit-section">
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    </div>
 </form>

@@ -72,17 +72,19 @@ header #authentication-button a {
     color: #2F312C;
     display: block;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 #form form div {
     display: inline-block;
-    margin: 10px 15px 10px 15px;
+    margin: 0 15px 0 15px;
 }
 
 #form form input {
     width: 300px;
     height: 30px;
     color: #086C50;
+    margin-bottom: 10px;
     border: 1px solid #E6DBDA;
 }
 
@@ -95,9 +97,25 @@ header #authentication-button a {
     border-radius: 17px;
     cursor: pointer;
     border-color: #086C50;
+    margin-top: 25px;
 }
 
-#submit-section {
+#form form input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: middle;
+    position: relative;
+    top: -1.5px;
+    *overflow: hidden;
+}
+
+label[for="remember_me"] {
+    display: block;
+}
+
+.submit-section {
     width: calc(100% - 30px);
     text-align: center;
 }

@@ -1,5 +1,23 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}" />
+{% endblock %}
+
+{% block header %}
+    Nom du site
+{% endblock %}
+
+{% block image %}
+    <div id="image-registration">
+        <img src="{{ asset('assets/images/money.png') }}" alt="money" />
+    </div>
+{% endblock %}
+
+{%  block form_title %}
+    Connectez vous avec votre communauté de parieur !
+{%  endblock %}
+
 {% block fos_user_content %}
     {{ include('@FOSUser/Security/login_content.html.twig') }}
 {% endblock fos_user_content %}

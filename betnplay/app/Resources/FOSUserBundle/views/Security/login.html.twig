@@ -8,6 +8,10 @@
     Nom du site
 {% endblock %}
 
+{% block linkto %}
+    <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+{% endblock %}
+
 {% block image %}
     <div id="image-registration">
         <img src="{{ asset('assets/images/money.png') }}" alt="money" />

@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}" />
 {% endblock %}
 
+{% block header %}
+    Nom du site
+{% endblock %}
+
 {% block fos_user_content %}
-{% include "@FOSUser/Registration/register_content.html.twig" %}
+    {% include "@FOSUser/Registration/register_content.html.twig" %}
 {% endblock fos_user_content %}

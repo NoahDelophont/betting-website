@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfbd46f1-4c3b-4dbf-ad16-7f24bfa5c346" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +51,7 @@
           <entry key="gitignore" value="4" />
           <entry key="htaccess" value="1" />
           <entry key="php" value="28" />
-          <entry key="twig" value="30" />
+          <entry key="twig" value="31" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
           <entry key="yml" value="17" />
@@ -62,7 +62,7 @@
           <entry key="CSS" value="2" />
           <entry key="PHP" value="28" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Twig" value="30" />
+          <entry key="Twig" value="31" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="20" />
           <entry key="htaccess" value="1" />
@@ -96,7 +96,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
+        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
@@ -146,9 +146,9 @@
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/css/register.css" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
       </list>
     </option>
   </component>
@@ -245,7 +245,7 @@
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="FOSUserBundle" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Registration" type="462c0819:PsiDirectoryNode" />
+              <item name="Security" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -300,12 +300,12 @@
       <workItem from="1539451554880" duration="3406000" />
       <workItem from="1539476878319" duration="8265000" />
       <workItem from="1539526299714" duration="3001000" />
-      <workItem from="1539767814460" duration="250000" />
+      <workItem from="1539767814460" duration="489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27163000" />
+    <option name="totallyTimeSpent" value="27402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -548,13 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="113" selection-start-line="11" selection-start-column="113" selection-end-line="11" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -570,6 +563,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />

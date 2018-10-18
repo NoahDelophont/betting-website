@@ -1,4 +1,5 @@
 https://www.football-data.org/documentation/samples
+clé: 839c5a615c954184bf1a858a5f49005e
 
 php ./bin/console doctrine:schema:update --force
 php ./bin/console cache:clear

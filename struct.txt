@@ -1,0 +1,39 @@
+Recherche des matchs pour une équipe
+
+count:
+filters:	permission,status,limit
+matches:	[id;
+			competition:id,name;
+			season:id,startDate,endDate,currentMatchday,winner;
+			utcDate;
+			status;
+			matchday;
+			stage;
+			group;
+			lastUpdated;
+			score:winner,duration,fullTime:(homeTeam,awayTeam),halfTime:(homeTeam,awayTeam),extraTime:(homeTeam,awayTeam),penalties:(homeTeam,awayTeam);
+			homeTeam:id,name;
+			awayTeam:id,name;
+			referees;]
+
+
+
+
+Recherche des équipes
+
+count:
+filters:	areas,permission
+teams:		[id;
+			area:id,name;
+			name;
+			shortName;
+			tla;
+			crestUrl;
+			address;
+			phone;
+			website;
+			email;
+			founded;
+			clubColors;
+			venue;
+			lastUpdated;]

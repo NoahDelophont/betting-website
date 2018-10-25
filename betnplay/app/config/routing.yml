@@ -23,3 +23,7 @@ fos_user_change_password:
 
 fos_user:
   resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+betnplay_datas:
+  path:      /datas
+  defaults:  { _controller: AppBundle:Api:data }

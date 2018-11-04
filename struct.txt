@@ -39,6 +39,7 @@ teams:		[id;
 			lastUpdated;]
 			
 			
+			
 Recherche des compétitions de TIER_ONE:
 
 count:
@@ -52,3 +53,23 @@ competitions:   [id;
                 currentSeason:is,startDate,endDate,currentMatchday,winner:[id,name,shortName,tla,crestUrl];
                 numberOfAvailableSeasons;
                 lastUpdated]
+
+
+
+Recherche de la liste des équipes:
+count:
+filters:
+teams:  [id;
+        area:id,name;
+        name;
+        shortName;
+        tla;
+        crestUrl;
+        address;
+        phone;
+        website;
+        email;
+        founded;
+        clubColors;
+        venue;
+        lastUpdated;]

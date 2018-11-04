@@ -47,7 +47,7 @@ competitions:   [id;
                 area:id,name;
                 name;
                 code;
-                embelmUrl;
+                emblemUrl;
                 plan;
                 currentSeason:is,startDate,endDate,currentMatchday,winner:[id,name,shortName,tla,crestUrl];
                 numberOfAvailableSeasons;

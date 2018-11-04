@@ -1,3 +1,7 @@
+Pour le moment privilégier:
+Ligue 1 (FL1) 2015, UEFA Champions League (CL) 2001, Premier League (PL) 2021, Bundesliga (BL1) 2019
+
+
 Recherche des matchs pour une équipe
 
 count:

@@ -37,3 +37,18 @@ teams:		[id;
 			clubColors;
 			venue;
 			lastUpdated;]
+			
+			
+Recherche des compétitions de TIER_ONE:
+
+count:
+filters:        plan
+competitions:   [id;
+                area:id,name;
+                name;
+                code;
+                embelmUrl;
+                plan;
+                currentSeason:is,startDate,endDate,currentMatchday,winner:[id,name,shortName,tla,crestUrl];
+                numberOfAvailableSeasons;
+                lastUpdated]

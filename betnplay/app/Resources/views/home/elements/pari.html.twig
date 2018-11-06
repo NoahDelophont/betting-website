@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/bouton.css')}}"/>
+{% endblock %}
+{% block body %}
+
+<h1>OM - PSG</h1>
+<p>Pariez sur le match OM PSG et faites vous plein de tunes</p>
+</body>
+.container
+  div.button-wrap
+    input(type="radio" name="accept-offers" id="yes-button" class="hidden radio-label" checked)
+    label(for="yes-button" class="button-label")
+      h1 Parier sur Marseille
+    input(type="radio" name="accept-offers" id="no-button" class="hidden radio-label")
+    label(for="no-button" class="button-label")
+      h1 Match Nul
+    input(type="radio" name="accept-offers" id="maybe-button" class="hidden radio-label")
+    label(for="maybe-button" class="button-label")
+      h1 Parier sur Paris
+
+{% endblock %}

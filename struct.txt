@@ -1,0 +1,79 @@
+Pour le moment privilégier:
+Ligue 1 (FL1) 2015, UEFA Champions League (CL) 2001, Premier League (PL) 2021, Bundesliga (BL1) 2019
+
+
+Recherche des matchs pour une équipe
+
+count:
+filters:	permission,status,limit
+matches:	[id;
+			competition:id,name;
+			season:id,startDate,endDate,currentMatchday,winner;
+			utcDate;
+			status;
+			matchday;
+			stage;
+			group;
+			lastUpdated;
+			score:winner,duration,fullTime:(homeTeam,awayTeam),halfTime:(homeTeam,awayTeam),extraTime:(homeTeam,awayTeam),penalties:(homeTeam,awayTeam);
+			homeTeam:id,name;
+			awayTeam:id,name;
+			referees;]
+
+
+
+
+Recherche des équipes
+
+count:
+filters:	areas,permission
+teams:		[id;
+			area:id,name;
+			name;
+			shortName;
+			tla;
+			crestUrl;
+			address;
+			phone;
+			website;
+			email;
+			founded;
+			clubColors;
+			venue;
+			lastUpdated;]
+			
+			
+			
+Recherche des compétitions de TIER_ONE:
+
+count:
+filters:        plan
+competitions:   [id;
+                area:id,name;
+                name;
+                code;
+                emblemUrl;
+                plan;
+                currentSeason:is,startDate,endDate,currentMatchday,winner:[id,name,shortName,tla,crestUrl];
+                numberOfAvailableSeasons;
+                lastUpdated]
+
+
+
+Recherche de la liste des équipes:
+count:
+filters:
+teams:  [id;
+        area:id,name;
+        name;
+        shortName;
+        tla;
+        crestUrl;
+        address;
+        phone;
+        website;
+        email;
+        founded;
+        clubColors;
+        venue;
+        lastUpdated;]

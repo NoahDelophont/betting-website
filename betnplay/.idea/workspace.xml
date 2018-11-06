@@ -1,98 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfbd46f1-4c3b-4dbf-ad16-7f24bfa5c346" name="Default Changelist" comment="bonjou">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.af.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.ar.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.bg.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.bn.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.bn_BD.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.ca.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.cs.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.da.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.de.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.el.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.en.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.eo.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.es.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.et.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.eu.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.fa.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.fi.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.fr.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.gl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.he.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.hr.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.hu.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.id.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.it.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.ja.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.ky.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.lb.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.lt.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.lv.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.nb.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.nl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.pl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.pt.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.pt_BR.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.ro.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.ru.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.sk.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.sl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.sr_Latn.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.sv.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.th.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.tr.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.uk.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.vi.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/FOSUserBundle.zh_CN.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.ar.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.bg.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.bn.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.bn_BD.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.ca.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.cs.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.da.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.de.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.el.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.en.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.eo.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.es.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.eu.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.fa.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.fi.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.fr.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.he.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.hr.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.hu.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.id.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.it.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.ja.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.ky.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.lt.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.lv.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.nb.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.nl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.pl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.pt.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.pt_BR.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.ro.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.ru.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.sk.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.sl.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.sr_Latn.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.sv.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.th.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.tr.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.uk.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.vi.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/translations/validators.zh_CN.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/liste.html.twig" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Ressources/liste.html.twig.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+    <list default="true" id="cfbd46f1-4c3b-4dbf-ad16-7f24bfa5c346" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -142,7 +52,7 @@
           <entry key="gitignore" value="4" />
           <entry key="htaccess" value="1" />
           <entry key="php" value="28" />
-          <entry key="twig" value="30" />
+          <entry key="twig" value="31" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
           <entry key="yml" value="17" />
@@ -153,7 +63,7 @@
           <entry key="CSS" value="2" />
           <entry key="PHP" value="28" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Twig" value="30" />
+          <entry key="Twig" value="31" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="20" />
           <entry key="htaccess" value="1" />
@@ -185,9 +95,9 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="28" column="8" lean-forward="false" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
@@ -330,14 +240,9 @@
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login_content.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/css/register.css" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Ressources/liste.html.twig.html" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/liste.html.twig" />
-        <option value="$PROJECT_DIR$/web/assets/css/search.css" />
+        <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig" />
       </list>
     </option>
   </component>
@@ -473,76 +378,12 @@
             </path>
             <path>
               <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AppBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Ressources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="friendsofsymfony" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="user-bundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="betnplay" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="FOSUserBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Security" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -601,17 +442,12 @@
       <workItem from="1539451554880" duration="3406000" />
       <workItem from="1539476878319" duration="8265000" />
       <workItem from="1539526299714" duration="3001000" />
-      <workItem from="1539767814460" duration="250000" />
-      <workItem from="1539768524462" duration="6003000" />
-      <workItem from="1539851792990" duration="2404000" />
-      <workItem from="1540452962445" duration="3710000" />
-      <workItem from="1540820155321" duration="976000" />
-      <workItem from="1541512646922" duration="104000" />
+      <workItem from="1539767814460" duration="489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40360000" />
+    <option name="totallyTimeSpent" value="27402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -793,14 +629,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/GroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1972">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOSUserBundle.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-52">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -923,32 +752,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Registration/register.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        <state relative-caret-position="136">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/liste.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/css/search.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="119">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>

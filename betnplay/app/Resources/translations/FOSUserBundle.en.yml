@@ -1,0 +1,14 @@
+layout:
+  logout: 'Deconnection'
+  login: 'Connection'
+  register: Register
+  logged_in_as: 'Logged in as %username%'
+
+form:
+  username: Username
+  email: Email
+  current_password: 'Mot de passe actuel'
+  password: Password
+  password_confirmation: 'Répéter le mot de passe'
+  new_password: 'Nouveau mot de passe'
+  new_password_confirmation: 'Répéter le nouveau mot de passe'

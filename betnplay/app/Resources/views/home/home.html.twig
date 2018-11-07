@@ -1,25 +1,47 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('assets/css/home.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css')}}"/>
+
+    <!-- Pour la barre de recherche -->
+    <link href="{{ asset('assets/css/search.css') }}" rel="stylesheet"/>
+    <script src="{{ asset('assets/js/search.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+    <!-- Pour l'affichage des details sur un match -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bouton.css')}}"/>
 {% endblock %}
+
+
 {% block body %}
 
-<header>
-  <h1>
-    Welcome to Bet'n play
-  </h1>
-    <nav>
-      <a href=""><i class="fas fa-home"></i> Bet'n Play</a>
-      <a href=""><i class="fas fa-users"></i> Profile</a>
-    </nav>
-</header>
-<div class="vertical-menu">
-  <a href="#" class="active"><i class="fas fa-futbol"></i> Bets Feed</a>
-  <a href="#"><i class="fas fa-hand-holding-usd"></i> Bets</a>
-</div>
+    <header>
+      <h1>
+        Bet'n play
+      </h1>
+        <!--<nav>
+          <a href=""><i class="fas fa-home"></i> Bet'n Play</a>
+          <a href=""><i class="fas fa-users"></i> Profile</a>
+        </nav>-->
+    </header>
+    <div class="vertical-menu">
+      <a href="#" class="active"><div><i class="fas fa-futbol"></i> Bets Feed</div></a>
+      <a href="#"><div><i class="fas fa-hand-holding-usd"></i> Bets</div></a>
+    </div>
+
+    {% include 'home/elements/liste.html.twig' %}
+
+    {% include 'home/elements/pari.html.twig' %}
+
 {% block list_pari %}
 {% endblock %}
+
 {% block pari %}
 {% endblock %}
+
 {% endblock %}
 

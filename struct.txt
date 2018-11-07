@@ -101,3 +101,26 @@ matches:        [id;
                 awayTeam: id,name;
                 referees: [id,name];
                 
+                
+                
+Recherche des informations au sujet d'un match:
+head2head:  numberOfMatches;
+            totalGoals;
+            homeTeam:(wins,draws,losses);
+            awayTeam
+match:      id;
+            competition:(id,name),season:(id,startDate,endDate,currentMatchday,winner);
+            utcDate;
+            status;
+            venue;
+            matchDay;
+            stage;
+            group;
+            lastUpdated;
+            score:(winner,duration,fullTime:(homeTeam,awayTeam),halfTime:(homeTeam,awayTeam),extraTime:(homeTeam,awayTeam),penalties:(homeTeam,awayTeam));
+            homeTeam:(id,name);
+            awayTeam:(id,name);
+            referees:[id,name,nationality]
+            
+            
+                

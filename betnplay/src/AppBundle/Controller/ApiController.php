@@ -13,7 +13,7 @@ class ApiController extends Controller
      */
     public function dataAction(){
 
-        $uri = 'http://api.football-data.org/v2/competitions/2015/matches';
+        $uri = 'http://api.football-data.org/v2/competitions/2015/matches?status=SCHEDULED';
         $reqPrefs['http']['method'] = 'GET';
         $reqPrefs['http']['header'] = 'X-Auth-Token: 839c5a615c954184bf1a858a5f49005e';
         $stream_context = stream_context_create($reqPrefs);
@@ -23,7 +23,7 @@ class ApiController extends Controller
 
         return $this->render(
             'home/home.html.twig',
-            array($matches)
+            array("matches" => $matches)
         );
     }
 

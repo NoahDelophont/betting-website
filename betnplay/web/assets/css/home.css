@@ -80,6 +80,7 @@ header {
 body {
     background-color: #eef3fa;
     overflow-x: hidden;
+    max-height: 100vh;
 }
 
 header {
@@ -88,6 +89,7 @@ header {
     padding-bottom: 20px;
     padding-left: 15px;
     color: white;
+    z-index: 10;
 }
 
 .vertical-menu {
@@ -117,7 +119,8 @@ header {
 }
 
 #pari-selectionne{
-    border-width: 0px;
+    z-index: 1;
+    border-left: 2px solid silver;
     padding-top: 2%;
 }
 
@@ -130,6 +133,11 @@ header {
     margin-top : 10%;
 }
 
+#listMatches {
+    z-index: 1;
+}
+
 #search-container {
     position: fixed;
+    z-index: 3;
 }

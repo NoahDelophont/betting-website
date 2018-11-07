@@ -77,3 +77,27 @@ teams:  [id;
         clubColors;
         venue;
         lastUpdated;]
+        
+        
+Récupération des matchs d'une compétitions:
+count:
+filters:
+competition:    id;
+                area:id,name;
+                name;
+                code;
+                plan;
+                lastUpdated
+matches:        [id;
+                season:id,startDate,endDate,currentMatchday;
+                utcDate;
+                status;
+                matchday;
+                stage;
+                group;
+                lastUpdated;
+                score: winner,duration,fullTime:(homeTeam,awayTeam),halfTime:(homeTeam,awayTeam),extraTime:(homeTeam,awayTeam),penalties:(homeTeam,awayTeam);
+                homeTeam: id,name;
+                awayTeam: id,name;
+                referees: [id,name];
+                

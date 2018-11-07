@@ -27,20 +27,24 @@
 
         {% for i in 0..10 %}
 
-            <div class="row">
+            <div class="row" id="{{ matches["matches"][i]['id'] }}">
                 <div class="col-md-6 Pari">
-                    <hr/>
                     <div class="row">
                         <div class="col-md-12 col-md-offset-1 NomChampionnat">
                             {{ matches['competition']['name'] }}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-7 col-md-offset-1 NomEquipe">
+                        <div class="col-md-6 col-md-offset-1 NomEquipe">
                             {{ matches["matches"][i]['homeTeam']['name'] }} - {{ matches["matches"][i]['awayTeam']['name'] }}
                         </div>
-                        <div class="col-md-2 col-md-offset-2">
-                            {{ matches["matches"][i]['utcDate'] }}
+                        <div class="col-md-3 col-md-offset-2">
+
+                            {% set date1 = matches["matches"][i]['utcDate']|split('-') %}
+                            {% set date1_1 = date1[2]|split('T') %}
+                            {% set date2 = matches["matches"][i]['utcDate']|split('T') %}
+                            {% set date3 = date2[1]|split(':') %}
+                            {{ date1_1[0] ~ '/' ~ date1[1] ~ ' ' ~ date3[0] ~ ':' ~ date3[1]}}
                         </div>
                     </div>
                     <div class="row">

@@ -14,34 +14,30 @@
 
     <!-- Pour l'affichage des details sur un match -->
     <link rel="stylesheet" href="{{ asset('assets/css/bouton.css')}}"/>
+    <script src="{{ asset('assets/js/getInfoMatch.js') }}"></script>
 {% endblock %}
 
 
 {% block body %}
 
     <header>
-      <h1>
-        Bet'n play
-      </h1>
-        <!--<nav>
-          <a href=""><i class="fas fa-home"></i> Bet'n Play</a>
-          <a href=""><i class="fas fa-users"></i> Profile</a>
-        </nav>-->
+        <h1>
+            Bet'n play 
+        </h1>
     </header>
-    <div class="vertical-menu">
-      <a href="#" class="active"><div><i class="fas fa-futbol"></i> Bets Feed</div></a>
-      <a href="#"><div><i class="fas fa-hand-holding-usd"></i> Bets</div></a>
+
+    <div class="vertical-menu col-md-2">
+        <a href="#" class="active"><div><i class="fas fa-futbol"></i> Bets Feed</div></a>
+        <a href="#"><div><i class="fas fa-hand-holding-usd"></i> Bets</div></a>
     </div>
 
-    {% include 'home/elements/liste.html.twig' %}
+    <div class="col-md-4 search-bar">{% include 'home/elements/liste.html.twig' %}</div>
+    <div>{% include 'home/elements/pari.html.twig' %}</div>
 
-    {% include 'home/elements/pari.html.twig' %}
+    {% block list_pari %}
+    {% endblock %}
 
-{% block list_pari %}
+    {% block pari %}
+    {% endblock %}
+
 {% endblock %}
-
-{% block pari %}
-{% endblock %}
-
-{% endblock %}
-

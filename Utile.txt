@@ -1,3 +1,10 @@
+Pour le git : 
+1 - On rebase pour mettre a jour le code 
+2 - Avant de push on rebase 
+3 - On push sur Master 
+
+
+
 https://www.football-data.org/documentation/samples
 clé: 839c5a615c954184bf1a858a5f49005e
 

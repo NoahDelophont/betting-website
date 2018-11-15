@@ -1,7 +1,7 @@
 Pour le git : 
 1 - On rebase pour mettre a jour le code 
 2 - Avant de push on rebase 
-3 - On push sur Master 
+3 - On push sur la branche Master 
 
 
 

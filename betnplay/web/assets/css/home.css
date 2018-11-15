@@ -1,4 +1,4 @@
-/** {
+* {
 	margin: 0;
 	padding: 0;
 	font-family: Arial;
@@ -9,18 +9,14 @@ body {
 }
 
 header {
-    position: fixed;
-    width: 100%;
 	background-color: #086c50;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 15px;
 	color: white;
 }
 
 .vertical-menu {
-	position: fixed;
-    top: 80px;
 	width: 200px;
 	height: calc(100vh - 80px);
 	background-color: #ffffff;
@@ -39,105 +35,4 @@ header {
 
 .vertical-menu div:hover {
 	background-color: #eef3fa;
-}
-
-
-
-.vertical-menu a {
-    text-decoration: none;
-}
-
-.vertical-menu div:hover {
-    background-color: #eef3fa;
-}
-
-#pari-selectionne h1, #pari-selectionne h4 {
-    text-align: center;
-}
-
-#pari-selectionne {
-    position: fixed;
-    border: 1px solid black;
-    padding-top: 2%;
-}
-
-.search-bar{
-    padding-top: 1%;
-}
-
-#pari-selectionne .match-details {
-    margin-left : 10%;
-    margin-top : 10%;
-}*/
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Arial;
-}
-
-
-body {
-    background-color: #eef3fa;
-    overflow-x: hidden;
-    max-height: 100vh;
-}
-
-header {
-    background-color: #086c50;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 15px;
-    color: white;
-    z-index: 10;
-}
-
-.vertical-menu {
-    width: 200px;
-    height: calc(100vh - 80px);
-    background-color: #ffffff;
-    border-right: 2px solid silver;
-}
-
-.vertical-menu div {
-    color: black;
-    padding-left: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.vertical-menu a {
-    text-decoration: none;
-}
-
-.vertical-menu div:hover {
-    background-color: #eef3fa;
-}
-
-#pari-selectionne h1, #pari-selectionne h4 {
-    text-align: center;
-}
-
-#pari-selectionne{
-    z-index: 1;
-    border-left: 2px solid silver;
-    padding-top: 2%;
-}
-
-.search-bar{
-    padding-top: 1%;
-}
-
-#pari-selectionne .match-details {
-    margin-left : 10%;
-    margin-top : 10%;
-}
-
-#listMatches {
-    z-index: 1;
-}
-
-#search-container {
-    position: fixed;
-    z-index: 3;
 }

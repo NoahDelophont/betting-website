@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\LastUpdated;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +24,10 @@ class ApiController extends Controller
         if($lastUpdate!=NULL) {
             $date = $lastUpdate->getUtcDate();
         } else {
-            
+            $date = date('d/m/y');
+            $entity = new LastUpdated();
+            $entity->setData('game');
+            $entity->setUtcDate($date);
         }
 
         $uri = 'http://api.football-data.org/v2/competitions/2015/matches?status=FINISHED';

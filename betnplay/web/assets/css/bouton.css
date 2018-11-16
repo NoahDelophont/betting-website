@@ -1,0 +1,95 @@
+#pari-selectionne {
+    position: absolute;
+    top: 78px;
+    right: 0;
+    width: 45%;
+    height: calc(100vh - 80px);
+}
+
+#list {
+    height: calc(100vh - 120px);
+    overflow-x: auto;
+}
+
+
+
+
+
+
+/**-**/
+
+
+#buttons p, #buttons h1
+{
+    text-align: center;
+    color: white;
+}
+
+
+#buttons {
+    box-sizing: border-box;
+}
+
+
+#buttons{
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+#buttons .button-wrap {
+    position: relative;
+    text-align: center;
+    top: 50%;
+}
+
+#buttons .button-label {
+    display: inline-block;
+    padding: 0 5px 2px 5px;
+    margin: 0.5em;
+    cursor: pointer;
+    color: #292929;
+    border-radius: 0.25em;
+    background: #2ECC71;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 -3px 0 rgba(0,0,0,0.22);
+    transition: 0.3s;
+    user-select: none;
+    line-height: 5px;
+}
+h1 {
+    font-size: 1em;
+}
+#buttons .button-label:hover {
+    background: #4183D7;
+    color: #292929;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0 -3px 0 rgba(0,0,0,0.32);
+}
+#buttons .button-label:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2), inset 0px -1px 0 rgba(0,0,0,0.22);
+}
+
+
+#yes-button:checked + .button-label {
+    background: #4183D7;
+    color: #efefef;}
+#yes-button:checked + .button-label:hover {
+    background: #2ECC71;
+    color: #4183D7;
+}
+
+
+#no-button:checked + .button-label {
+    background: #4183D7;
+    color: #efefef;}
+#no-button:checked + .button-label:hover {
+    background: #4183D7;
+    color: #efefef;
+}
+
+
+
+
+#buttons .hidden {
+    display: none;
+}

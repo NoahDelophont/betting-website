@@ -5,8 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Game;
 use AppBundle\Entity\LastUpdated;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ApiController extends Controller
 {
@@ -69,16 +69,8 @@ class ApiController extends Controller
 
         } else {
             $result = $bdd_game->findAll();
-            $json_string = "{'competition':{'id':2015,'name':'Ligue 1'},'matches':[";
             $json = [];
             for($i=0;$i<count($result);$i++) {
-                    $json_string = $json_string . "{'id':".$result[$i]->getApiId() . ','                                            . "'utcDate':".$result[$i]->getApiId()
-                                                . "'awayTeam':".$result[$i]->getAwayTeam() . ','
-                                                . "'cote':".$result[$i]->getCote(). ','
-                                                . "'homeTeam':".$result[$i]->getHomeTeam(). ','
-                                                . "'matchday':".$result[$i]->getMatchDay(). ','
-                                                . "'score':".$result[$i]->getScore() . '}';
-                    if($i<count($result)-1) $json_string = $json_string . ',';
                     array_push($json,array(  'id'=>$result[$i]->getApiId(),
                                                     'awayTeam' => json_decode($result[$i]->getAwayTeam(),true),
                                                     'cote'=>$result[$i]->getCote(),
@@ -87,16 +79,34 @@ class ApiController extends Controller
                                                     'matchday'=> $result[$i]->getMatchDay(),
                                                     'score'=> json_decode($result[$i]->getScore()),true));
             }
-            $json_string = $json_string . ']}';
             $matches = array('competition'=>array('id'=>2015,'name'=>'Ligue 1'),'matches'=>$json);
-            //var_dump($matches);
-            //exit(0);
         }
 
         return $this->render(
             'home/home.html.twig',
             array("matches" => $matches)
         );
+    }
+
+    /**
+     * @Route("/request/", name="ajax")
+     */
+    public function ajaxRequestAction() {
+        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
+        $result = $bdd_game->findAll();
+        $json = [];
+        for($i=0;$i<count($result);$i++) {
+            array_push($json,array(  'id'=>$result[$i]->getApiId(),
+                'awayTeam' => json_decode($result[$i]->getAwayTeam(),true),
+                'cote'=>$result[$i]->getCote(),
+                'utcDate'=>$result[$i]->getUtcDate(),
+                'homeTeam'=> json_decode($result[$i]->getHomeTeam(),true),
+                'matchday'=> $result[$i]->getMatchDay(),
+                'score'=> json_decode($result[$i]->getScore()),true));
+        }
+        $matches = array('competition'=>array('id'=>2015,'name'=>'Ligue 1'),'matches'=>$json);
+
+        return new JsonResponse($matches);
     }
 
 

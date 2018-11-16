@@ -19,6 +19,7 @@ class ApiController extends Controller
         {
             $this->container->get('profiler')->disable();
         }
+        $em = $this->getDoctrine()->getManager();
 
         $upToDate = true;
         $date = date('d/m/y');
@@ -33,6 +34,9 @@ class ApiController extends Controller
             $entity = new LastUpdated();
             $entity->setData('game');
             $entity->setUtcDate($date);
+            $upToDate = false;
+            $em->persist($entity);
+            $em->flush();
         }
 
         $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
@@ -44,40 +48,49 @@ class ApiController extends Controller
             $response = file_get_contents($uri, false, $stream_context);
             $matches = json_decode($response, true);
 
-            for ($i = 0;$i<count($matches['match']);$i++) {
-                $result = $bdd_game->findOneBy(array('api_id'=>$matches['match'][$i]['id']));
+            for ($i = 0;$i<count($matches['matches']);$i++) {
+                $result = $bdd_game->findOneBy(array('apiId'=>$matches['matches'][$i]['id']));
                 if($result==NULL) {
                     $match = new Game();
-                    $match->setApiId($matches['match'][$i]['id']);
-                    $match->setUtcDate($matches['match'][$i]['utcDate']);
-                    $match->setAwayTeam(json_encode($matches['match'][$i]['awayTeam']));
-                    $match->setCompetition(json_encode($matches['match'][$i]['competition']));
+                    $match->setApiId($matches['matches'][$i]['id']);
+                    $match->setUtcDate($matches['matches'][$i]['utcDate']);
+                    $match->setAwayTeam(json_encode($matches['matches'][$i]['awayTeam']));
+                    $match->setCompetition(json_encode($matches['competition']));
                     $match->setCote('{1.4,1.5,1.3}');
-                    $match->setHomeTeam(json_encode($matches['match'][$i]['homeTeam']));
-                    $match->setMatchDay($matches['match'][$i]['matchDay']);
-                    $match->setScore(json_encode($matches['match'][$i]['score']));
+                    $match->setHomeTeam(json_encode($matches['matches'][$i]['homeTeam']));
+                    $match->setMatchDay($matches['matches'][$i]['matchday']);
+                    $match->setScore(json_encode($matches['matches'][$i]['score']));
 
-                    $bdd_game->persistent($match);
+                    $em->persist($match);
                 }
             }
-            $bdd_game->flush();
+            $em->flush();
 
 
         } else {
             $result = $bdd_game->findAll();
             $json_string = "{'competition':{'id':2015,'name':'Ligue 1'},'matches':[";
+            $json = [];
             for($i=0;$i<count($result);$i++) {
                     $json_string = $json_string . "{'id':".$result[$i]->getApiId() . ','                                            . "'utcDate':".$result[$i]->getApiId()
                                                 . "'awayTeam':".$result[$i]->getAwayTeam() . ','
-                                                . "'competition':".$result[$i]->getCompetition(). ','
                                                 . "'cote':".$result[$i]->getCote(). ','
                                                 . "'homeTeam':".$result[$i]->getHomeTeam(). ','
-                                                . "'matchDay':".$result[$i]->getMatchDay(). ','
+                                                . "'matchday':".$result[$i]->getMatchDay(). ','
                                                 . "'score':".$result[$i]->getScore() . '}';
                     if($i<count($result)-1) $json_string = $json_string . ',';
+                    array_push($json,array(  'id'=>$result[$i]->getApiId(),
+                                                    'awayTeam' => json_decode($result[$i]->getAwayTeam(),true),
+                                                    'cote'=>$result[$i]->getCote(),
+                                                    'utcDate'=>$result[$i]->getUtcDate(),
+                                                    'homeTeam'=> json_decode($result[$i]->getHomeTeam(),true),
+                                                    'matchday'=> $result[$i]->getMatchDay(),
+                                                    'score'=> json_decode($result[$i]->getScore()),true));
             }
             $json_string = $json_string . ']}';
-            $matches = json_decode($json_string, true);
+            $matches = array('competition'=>array('id'=>2015,'name'=>'Ligue 1'),'matches'=>$json);
+            //var_dump($matches);
+            //exit(0);
         }
 
         return $this->render(

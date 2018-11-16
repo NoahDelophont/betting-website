@@ -18,6 +18,14 @@ class ApiController extends Controller
             $this->container->get('profiler')->disable();
         }
 
+        $bdd_lastUpdated = $this->getDoctrine()->getRepository('AppBundle:LastUpdated');
+        $lastUpdate = $bdd_lastUpdated->findOneBy(array('data'=>'game')) ;
+        if($lastUpdate!=NULL) {
+            $date = $lastUpdate->getUtcDate();
+        } else {
+            
+        }
+
         $uri = 'http://api.football-data.org/v2/competitions/2015/matches?status=FINISHED';
         $reqPrefs['http']['method'] = 'GET';
         $reqPrefs['http']['header'] = 'X-Auth-Token: 839c5a615c954184bf1a858a5f49005e';

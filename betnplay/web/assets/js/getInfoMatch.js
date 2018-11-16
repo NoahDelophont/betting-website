@@ -16,7 +16,7 @@ function updateMatchSelected(competition,team1,team2,d) {
 
 function getInfo(id) {
 
-    $.ajax({
+    /*$.ajax({
         headers: { 'X-Auth-Token': '839c5a615c954184bf1a858a5f49005e' },
         url: 'https://api.football-data.org/v2/matches/'+id,dataType: 'json',
         type: 'GET',
@@ -34,8 +34,27 @@ function getInfo(id) {
         date = tmp2[0] + '/' + tmp[1] + ' ' + tmp4[0] + ':' + tmp4[1];
 
         updateMatchSelected(competition,team1,team2,date);
-    });
+    });*/
 
+
+    $.ajax({
+        url: 'http://localhost:8000/request/'+id,dataType: 'json',
+        type: 'GET',
+    }).done(function(response) {
+        var competition = response['match']['competition']['name'];
+
+        var team1 = response['match']['homeTeam']['name'];
+        var team2 = response['match']['awayTeam']['name'];
+
+        var date = response['match']['utcDate'];
+        var tmp = date.split('-');
+        var tmp2 = tmp[2].split('T');
+        var tmp3 = response['match']['utcDate'].split('T');
+        var tmp4 = tmp3[1].split(':');
+        date = tmp2[0] + '/' + tmp[1] + ' ' + tmp4[0] + ':' + tmp4[1];
+
+        updateMatchSelected(competition,team1,team2,date);
+    });
 }
 
 function matchClicked(elt) {

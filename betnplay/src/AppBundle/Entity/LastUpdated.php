@@ -24,9 +24,16 @@ class LastUpdated
     /**
      * @var string
      *
-     * @ORM\Column(name="game", type="string", length=255)
+     * @ORM\Column(name="data", type="string", length=255)
      */
-    private $game;
+    private $data;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="utcDate", type="string", length=255)
+     */
+    private $utcDate;
 
 
     /**
@@ -40,27 +47,51 @@ class LastUpdated
     }
 
     /**
-     * Set game
+     * Set data
      *
-     * @param string $game
+     * @param string $data
      *
      * @return LastUpdated
      */
-    public function setGame($game)
+    public function setData($data)
     {
-        $this->game = $game;
+        $this->data = $data;
 
         return $this;
     }
 
     /**
-     * Get game
+     * Get data
      *
      * @return string
      */
-    public function getGame()
+    public function getData()
     {
-        return $this->game;
+        return $this->data;
+    }
+
+    /**
+     * Set utcDate
+     *
+     * @param string $utcDate
+     *
+     * @return LastUpdated
+     */
+    public function setUtcDate($utcDate)
+    {
+        $this->utcDate = $utcDate;
+
+        return $this;
+    }
+
+    /**
+     * Get utcDate
+     *
+     * @return string
+     */
+    public function getUtcDate()
+    {
+        return $this->utcDate;
     }
 }
 

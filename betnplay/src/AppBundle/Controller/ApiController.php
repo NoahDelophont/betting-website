@@ -64,7 +64,20 @@ class ApiController extends Controller
 
 
         } else {
-
+            $result = $bdd_game->findAll();
+            $json_string = "{'competition':{'id':2015,'name':'Ligue 1'},'matches':[";
+            for($i=0;$i<count($result);$i++) {
+                    $json_string = $json_string . "{'id':".$result[$i]->getApiId() . ','                                            . "'utcDate':".$result[$i]->getApiId()
+                                                . "'awayTeam':".$result[$i]->getAwayTeam() . ','
+                                                . "'competition':".$result[$i]->getCompetition(). ','
+                                                . "'cote':".$result[$i]->getCote(). ','
+                                                . "'homeTeam':".$result[$i]->getHomeTeam(). ','
+                                                . "'matchDay':".$result[$i]->getMatchDay(). ','
+                                                . "'score':".$result[$i]->getScore() . '}';
+                    if($i<count($result)-1) $json_string = $json_string . ',';
+            }
+            $json_string = $json_string . ']}';
+            $matches = json_decode($json_string, true);
         }
 
         return $this->render(

@@ -5,16 +5,14 @@
 
     <!-- Pour la barre de recherche -->
     <link href="{{ asset('assets/css/search.css') }}" rel="stylesheet"/>
-    <script src="{{ asset('assets/js/search.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
     <!-- Pour l'affichage des details sur un match -->
     <link rel="stylesheet" href="{{ asset('assets/css/bouton.css')}}"/>
-    <script src="{{ asset('assets/js/getInfoMatch.js') }}"></script>
 {% endblock %}
 
 
@@ -40,4 +38,9 @@
     {% block pari %}
     {% endblock %}
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/getInfoMatch.js') }}"></script>
+    <script src="{{ asset('assets/js/search.js') }}"></script>
 {% endblock %}

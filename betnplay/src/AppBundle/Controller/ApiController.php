@@ -95,10 +95,29 @@ class ApiController extends Controller
         $request = urldecode($request);
         $em = $this->getDoctrine()->getManager();
         $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
-        $qb = $em->createQueryBuilder();
 
         if($request=="all") {
             $result = $bdd_game->findAll();
+            $json = [];
+            for ($i = 0; $i < count($result); $i++) {
+                array_push($json, array('id' => $result[$i]->getApiId(),
+                    'awayTeam' => json_decode($result[$i]->getAwayTeam(), true),
+                    'cote' => $result[$i]->getCote(),
+                    'utcDate' => $result[$i]->getUtcDate(),
+                    'homeTeam' => json_decode($result[$i]->getHomeTeam(), true),
+                    'matchday' => $result[$i]->getMatchDay(),
+                    'score' => json_decode($result[$i]->getScore()), true));
+            }
+            $matches = array('competition' => array('id' => 2015, 'name' => 'Ligue 1'), 'matches' => $json);
+        } elseif (!preg_match('~[0-9]~', $request)) {
+
+            $repository = $em->getRepository('AppBundle:Game');
+            $query = $repository->createQueryBuilder('g')
+                ->where('g.homeTeam LIKE :word')
+                ->orWhere('g.awayTeam LIKE :word')
+                ->setParameter('word', '%'.$request.'%')
+                ->getQuery();
+            $result = $query->getResult();
             $json = [];
             for ($i = 0; $i < count($result); $i++) {
                 array_push($json, array('id' => $result[$i]->getApiId(),

@@ -2,11 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Bet;
 use AppBundle\Entity\Game;
 use AppBundle\Entity\LastUpdated;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class ApiController extends Controller
 {
@@ -94,7 +96,7 @@ class ApiController extends Controller
 
         return $this->render(
             'home/home.html.twig',
-            array("matches" => $matches)
+            array("matches" => $matches,"homepage"=>true)
         );
     }
 
@@ -144,7 +146,8 @@ class ApiController extends Controller
             $matches = array('competition' => array('id' => 2015, 'name' => 'Ligue 1'), 'matches' => $json);
         } else {
             $result = $bdd_game->findOneBy(array('apiId'=>$request));
-            $json = array(  'utcDate' => $result->getUtcDate(),
+            $json = array(  'id' => $request,
+                            'utcDate' => $result->getUtcDate(),
                             'homeTeam' => json_decode($result->getHomeTeam(), true),
                             'awayTeam' => json_decode($result->getAwayTeam(), true),
                             'competition' => array('name'=> "Ligue 1"));
@@ -159,11 +162,69 @@ class ApiController extends Controller
      * @Route("/bets", name="betpage")
      */
     public function betAction() {
-        $matches = array('competition'=>array('id'=>2015,'name'=>'Ligue 1'),'matches'=>[]);
+        $user = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+
+
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $bets = $bdd_bet->findBy(array('idUser'=>$user));
+        $id_bets = [];
+        for($i=0;$i<count($bets);$i++)
+            array_push($id_bets,$bets[$i]->getIdGame());
+
+        $team = -1;
+        if(count($bets)>0) $team = $bets[0]->getTeam();
+
+
+        $repository = $em->getRepository('AppBundle:Game');
+        $query = $repository->createQueryBuilder('g')
+            ->where('g.apiId IN(:games)')
+            ->setParameter('games', array_values($id_bets))
+            ->getQuery();
+        $result = $query->getResult();
+
+
+        $json = [];
+        for ($i = 0; $i < count($result); $i++) {
+            array_push($json, array('id' => $result[$i]->getApiId(),
+                'awayTeam' => json_decode($result[$i]->getAwayTeam(), true),
+                'cote' => $result[$i]->getCote(),
+                'utcDate' => $result[$i]->getUtcDate(),
+                'homeTeam' => json_decode($result[$i]->getHomeTeam(), true),
+                'matchday' => $result[$i]->getMatchDay(),
+                'score' => json_decode($result[$i]->getScore()), true));
+        }
+
+
+        $matches = array('competition' => array('id' => 2015, 'name' => 'Ligue 1'), 'matches' => $json);
         return $this->render(
             'home/home.html.twig',
-            array("matches" => $matches)
+            array("matches" => $matches,"team"=>$team)
         );
+    }
+
+
+    /**
+     * @Route("/bets/{idMatch}/{team}", name="betaction")
+     */
+    public function betOnMatchAction($idMatch,$team) {
+        $user = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $bets = $bdd_bet->findOneBy(array('idUser'=>$user,'idGame'=>$idMatch));
+
+        if($bets==NULL) {
+            $bet = new Bet();
+            $bet->setIdGame($idMatch);
+            $bet->setIdUser($user);
+            $bet->setTeam($team);
+            $em->persist($bet);
+            $em->flush();
+        }
+
+        // redirects to the "homepage" route
+        return $this->redirectToRoute('betpage');
     }
 
 }

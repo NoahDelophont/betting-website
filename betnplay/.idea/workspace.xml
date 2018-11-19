@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cfbd46f1-4c3b-4dbf-ad16-7f24bfa5c346" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/home.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,7 +57,7 @@
           <entry key="htaccess" value="1" />
           <entry key="js" value="2" />
           <entry key="php" value="38" />
-          <entry key="twig" value="36" />
+          <entry key="twig" value="40" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
           <entry key="yml" value="18" />
@@ -67,7 +69,7 @@
           <entry key="JavaScript" value="2" />
           <entry key="PHP" value="38" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Twig" value="36" />
+          <entry key="Twig" value="40" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="21" />
           <entry key="htaccess" value="1" />
@@ -77,8 +79,8 @@
         <counts>
           <entry key="css" value="1623" />
           <entry key="js" value="780" />
-          <entry key="php" value="2859" />
-          <entry key="twig" value="875" />
+          <entry key="php" value="2873" />
+          <entry key="twig" value="1083" />
           <entry key="yml" value="149" />
         </counts>
       </usages-collector>
@@ -86,8 +88,8 @@
         <counts>
           <entry key="CSS" value="1623" />
           <entry key="JavaScript" value="780" />
-          <entry key="PHP" value="2859" />
-          <entry key="Twig" value="875" />
+          <entry key="PHP" value="2873" />
+          <entry key="Twig" value="1083" />
           <entry key="YAML" value="149" />
         </counts>
       </usages-collector>
@@ -114,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+            <state relative-caret-position="1225">
+              <caret line="156" selection-start-line="156" selection-end-line="156" />
               <folding>
                 <element signature="e#40#66#0#PHP" expanded="true" />
               </folding>
@@ -123,11 +125,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+            <state relative-caret-position="306">
+              <caret line="51" column="28" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -144,6 +155,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
               <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/home/home.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -195,11 +215,12 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/js/getInfoMatch.js" />
+        <option value="$PROJECT_DIR$/web/assets/js/search.js" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/home/home.html.twig" />
-        <option value="$PROJECT_DIR$/web/assets/js/search.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" />
       </list>
     </option>
   </component>
@@ -265,12 +286,6 @@
               <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
               <item name="betnplay" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
-              <item name="betnplay" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="betnplay" type="b2602c69:ProjectViewProjectNode" />
@@ -401,12 +416,12 @@
       <workItem from="1539476878319" duration="8265000" />
       <workItem from="1539526299714" duration="3001000" />
       <workItem from="1539767814460" duration="489000" />
-      <workItem from="1542633603281" duration="3101000" />
+      <workItem from="1542633603281" duration="4501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50322000" />
+    <option name="totallyTimeSpent" value="51722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -461,9 +476,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/.htaccess">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AppCache.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -653,13 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="71" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -674,17 +679,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Game.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -702,18 +707,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        <state relative-caret-position="1225">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
           <folding>
             <element signature="e#40#66#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+        <state relative-caret-position="306">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
         </state>
       </provider>
     </entry>

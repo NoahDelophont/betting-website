@@ -156,58 +156,14 @@ class ApiController extends Controller
 
 
     /**
-     * @Route("/bet/{id_user}", name="bet")
+     * @Route("/bets", name="betpage")
      */
-    public function ajaxBetRequestAction($id_user) {
-        $em = $this->getDoctrine()->getManager();
-        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
-
-        $result = $bdd_bet->findOneBy(array('idUser'=>$id_user));
-        return new JsonResponse($result);
-
-        /*if($request=="all") {
-            $result = $bdd_game->findAll();
-            $json = [];
-            for ($i = 0; $i < count($result); $i++) {
-                array_push($json, array('id' => $result[$i]->getApiId(),
-                    'awayTeam' => json_decode($result[$i]->getAwayTeam(), true),
-                    'cote' => $result[$i]->getCote(),
-                    'utcDate' => $result[$i]->getUtcDate(),
-                    'homeTeam' => json_decode($result[$i]->getHomeTeam(), true),
-                    'matchday' => $result[$i]->getMatchDay(),
-                    'score' => json_decode($result[$i]->getScore()), true));
-            }
-            $matches = array('competition' => array('id' => 2015, 'name' => 'Ligue 1'), 'matches' => $json);
-        } elseif (!preg_match('~[0-9]~', $request)) {
-
-            $repository = $em->getRepository('AppBundle:Game');
-            $query = $repository->createQueryBuilder('g')
-                ->where('g.homeTeam LIKE :word')
-                ->orWhere('g.awayTeam LIKE :word')
-                ->setParameter('word', '%'.$request.'%')
-                ->getQuery();
-            $result = $query->getResult();
-            $json = [];
-            for ($i = 0; $i < count($result); $i++) {
-                array_push($json, array('id' => $result[$i]->getApiId(),
-                    'awayTeam' => json_decode($result[$i]->getAwayTeam(), true),
-                    'cote' => $result[$i]->getCote(),
-                    'utcDate' => $result[$i]->getUtcDate(),
-                    'homeTeam' => json_decode($result[$i]->getHomeTeam(), true),
-                    'matchday' => $result[$i]->getMatchDay(),
-                    'score' => json_decode($result[$i]->getScore()), true));
-            }
-            $matches = array('competition' => array('id' => 2015, 'name' => 'Ligue 1'), 'matches' => $json);
-        } else {
-            $result = $bdd_game->findOneBy(array('apiId'=>$request));
-            $json = array(  'utcDate' => $result->getUtcDate(),
-                'homeTeam' => json_decode($result->getHomeTeam(), true),
-                'awayTeam' => json_decode($result->getAwayTeam(), true),
-                'competition' => array('name'=> "Ligue 1"));
-            $matches = array('match'=>$json);
-        }
-
-        return new JsonResponse($matches);*/
+    public function betAction() {
+        $matches = array('competition'=>array('id'=>2015,'name'=>'Ligue 1'),'matches'=>[]);
+        return $this->render(
+            'home/home.html.twig',
+            array("matches" => $matches)
+        );
     }
 
 }

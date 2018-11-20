@@ -52,9 +52,14 @@
                     {% set n = n-1 %}
                 {%  endif %}
                 {% if n>=0 %}
+                    {% if team is defined %}
+                        {% set functionJs = "javascript:matchClicked(this,'true')" %}
+                    {% else %}
+                        {% set functionJs = "javascript:matchClicked(this)" %}
+                    {%  endif %}
                     {% for i in 0..n %}
 
-                        <div class="row" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="javascript:matchClicked(this)" >
+                        <div class="row" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="{{ functionJs }}" >
                             <div class="col-md-8 Pari">
                                 <div class="row">
                                     <div class="col-md-12 col-md-offset-1 NomChampionnat">

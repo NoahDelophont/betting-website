@@ -4,17 +4,17 @@
         {% set n = matches["matches"]|length %}
         {% if n>0 %}
             <h1 id="titre-match">{{ matches["matches"][0]['homeTeam']['name'] }} - {{ matches["matches"][0]['awayTeam']['name'] }}</h1>
-            {% if team is defined %}
+            <h4 id="sous-titre-match">{% if team is defined %}
                 {% if team==0 %}
-                    <h4>Vous avez parié sur une victoire de {{ matches["matches"][0]['homeTeam']['name'] }}</h4>
+                    Vous avez parié sur une victoire de {{ matches["matches"][0]['homeTeam']['name'] }}
                 {%  elseif team==1 %}
-                    <h4>Vous avez parié sur un match nul</h4>
+                    Vous avez parié sur un match nul
                 {% elseif team==2 %}
-                    <h4>Vous avez parié sur une victoire de {{ matches["matches"][0]['awayTeam']['name'] }}</h4>
+                    Vous avez parié sur une victoire de {{ matches["matches"][0]['awayTeam']['name'] }}
                 {% endif %}
             {% else %}
-                <h4>Pariez sur le match et gagnez plein d'argent !! <img src="{{ asset('assets/images/money-bag.png') }}"/></h4>
-            {% endif %}
+                Pariez sur le match et gagnez plein d'argent !! <img src="{{ asset('assets/images/money-bag.png') }}"/>
+            {% endif %}</h4>
 
             <div class="row col-md-10 match-details">
                 <hr/>

@@ -159,6 +159,25 @@ class ApiController extends Controller
 
 
     /**
+     * @Route("/request/bets/{idMatch}", name="betrequest")
+     */
+    public function requestBetOnMatchAction($idMatch) {
+        $user = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        $result = array();
+
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $bet = $bdd_bet->findOneBy(array('idUser'=>$user,'idGame'=>$idMatch));
+
+        if($bet!=NULL) {
+            $result = array("id_game"=>$idMatch,"team"=>$bet->getTeam());
+        }
+
+        return new JsonResponse($result);
+    }
+
+
+    /**
      * @Route("/bets", name="betpage")
      */
     public function betAction() {

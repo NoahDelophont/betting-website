@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% set ENVIRONNEMENT = "" %}
 {% block stylesheets %}
 
 
@@ -25,8 +25,8 @@
     </header>
 
     <div class="vertical-menu col-md-2">
-        <a href="/" class="active"><div><i class="fas fa-futbol"></i> Bets Feed</div></a>
-        <a href="/bets"><div><i class="fas fa-hand-holding-usd"></i> Bets</div></a>
+        <a href="{{ ENVIRONNEMENT }}/" class="active"><div><i class="fas fa-futbol"></i> Bets Feed</div></a>
+        <a href="{{ ENVIRONNEMENT }}/bets"><div><i class="fas fa-hand-holding-usd"></i> Bets</div></a>
     </div>
 
     <div class="col-md-4 search-bar">

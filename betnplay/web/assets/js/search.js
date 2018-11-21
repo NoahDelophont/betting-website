@@ -74,7 +74,6 @@ function displayGameUserBetOn() {
         for(i=0;i<array.length;i++) {
             var idGame = array[i].id;
             if (JSON.stringify(response).includes(idGame)) {
-                alert(JSON.stringify(response));
                 changeColorGame(idGame,response[idGame]);
             }
         }

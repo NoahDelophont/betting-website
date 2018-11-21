@@ -251,6 +251,7 @@ class ApiController extends Controller
         }
 
 
+        $json = array_reverse($json);
         $matches = array('competition' => array('id' => 2015, 'name' => 'Ligue 1'), 'matches' => $json);
         return $this->render(
             'home/home.html.twig',

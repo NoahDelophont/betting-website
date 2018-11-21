@@ -17,7 +17,7 @@ function createList(matches) {
     var i;
     var addHtml = "";
     for(i=0;i<matches["matches"].length;i++) {
-        var html = '<div class="row" id="' + matches["matches"][i]['id'] + '" style="cursor:pointer;" onclick="javascript:matchClicked(this)" >';
+        var html = '<div class="row listElt" id="' + matches["matches"][i]['id'] + '" style="cursor:pointer;" onclick="javascript:matchClicked(this)" >';
         html = html + '<div class="col-md-8 Pari">';
         html = html + '<div class="row">';
         html = html + '<div class="col-md-12 col-md-offset-1 NomChampionnat">' + matches['competition']['name'] + '</div></div>';

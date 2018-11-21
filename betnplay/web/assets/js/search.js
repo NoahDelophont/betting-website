@@ -46,3 +46,33 @@ function createList(matches) {
     //document.body.innerText = addHtml;
     $( addHtml ).insertAfter( "#separator" );
 }
+
+
+function getIdDisplayedGame() {
+    var array = $('#separator').nextAll('div');
+    return array;
+}
+
+function changeColorGame(idGame) {
+    var game = document.getElementById(idGame);
+    game.style.backgroundColor = "DarkOrange";
+}
+
+function displayGameUserBetOn() {
+    var array = getIdDisplayedGame();
+    var i;
+
+    $.ajax({
+        url: 'http://localhost:8000/request/all/bets', dataType: 'json',
+        type: 'GET',
+    }).done(function (response) {
+        for(i=0;i<array.length;i++) {
+            var idGame = array[i].id;
+            if (JSON.stringify(response).includes(idGame)) {
+                changeColorGame(idGame);
+            }
+        }
+    });
+}
+
+displayGameUserBetOn();

@@ -33,5 +33,10 @@
 .btn-info{
   background-color: white;
   border-color: white;
-
+}
+hr {
+    margin: 0;
+    color: grey;
+    background-color: grey;
+    height: 1px;
 }

@@ -46,6 +46,31 @@ header {
 	text-align: center;
 }
 
+
+#pari-selectionne {
+    position: absolute;
+    top: 85px;
+    right: 0;
+    width: 45%;
+    height: calc(100vh - 85px);
+    background-color: white;
+}
+
+#list {
+    height: calc(100vh - 120px);
+    overflow-x: auto;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+
+.Pari {
+    height: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
 #pari-selectionne{
 	z-index: 1;
 	border-left: 2px solid silver;
@@ -54,6 +79,7 @@ header {
 
 .search-bar{
 	padding-top: 1%;
+    padding-left: 0;
 }
 
 #pari-selectionne .match-details {

@@ -64,7 +64,7 @@
                         {% set date3 = date2[1]|split(':') %}
                         {% set dateAffichee =  date1_1[0] ~ '/' ~ date1[1] ~ ' ' ~ date3[0] ~ ':' ~ date3[1]%}
 
-                        <div class="row" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="{{ functionJs }}" >
+                        <div class="row listElt" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="{{ functionJs }}" >
                             <div class="col-md-8 Pari">
                                 <div class="row">
                                     <div class="col-md-12 col-md-offset-1 NomChampionnat">
@@ -90,9 +90,10 @@
                                         1.4
                                     </div>
                                 </div>
-                                <hr/>
+                                <!--<hr/>-->
                             </div>
                         </div>
+                        <hr/>
 
                     {% endfor %}
                 {%  endif %}

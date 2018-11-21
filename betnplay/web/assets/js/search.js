@@ -38,7 +38,7 @@ function createList(matches) {
         html = html + '<div class="col-md-3 col-md-offset-1 cote">1.5</div>';
         html = html + '<div class="col-md-3 cote">1.3</div>';
         html = html + '<div class="col-md-3 cote">1.4</div>';
-        html = html + '</div><hr/></div></div>';
+        html = html + '</div></div></div><hr/>';
 
         addHtml = addHtml + html;
         //document.getElementById('listMatches').innerHTML = document.getElementById('listMatches').innerHTML + html;

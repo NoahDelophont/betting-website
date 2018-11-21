@@ -15,7 +15,7 @@ function updateMatchSelected(id,competition,team1,team2,d) {
     betAwayTeam.innerHTML = 'Parier sur ' + team2.split(' ')[0]+'<br/>1.4';
     betHomeTeam.innerHTML = 'Parier sur ' + team1.split(' ')[0]+'<br/>1.5';
     container.id = "button-wrap-"+id;
-    sousTitre.innerHTML = "Pariez sur le match et gagnez plein d'argent !! <img src="+ENVIRONNEMENT+"\"/assets/images/money-bag.png\"/>";
+    sousTitre.innerHTML = "Pariez sur le match et gagnez plein d'argent !! <img src=\"/assets/images/money-bag.png\"/>";
 }
 
 function updateBetSelected(id,competition,team1,team2,d,bet) {

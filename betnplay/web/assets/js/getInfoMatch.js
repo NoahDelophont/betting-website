@@ -110,5 +110,5 @@ function matchClicked(elt,bet = "false") {
 
 function betOnGame(elt,n) {
     var idGame = elt.parentElement.id.split('-')[2];
-    window.location.href = "/bets/"+idGame+"/"+n;
+    window.location.href = ENVIRONNEMENT+"/bets/"+idGame+"/"+n;
 }

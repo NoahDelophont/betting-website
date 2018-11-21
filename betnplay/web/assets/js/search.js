@@ -53,9 +53,14 @@ function getIdDisplayedGame() {
     return array;
 }
 
-function changeColorGame(idGame) {
+function changeColorGame(idGame,win = 0) {
     var game = document.getElementById(idGame);
-    game.style.backgroundColor = "DarkOrange";
+    if(win==1)
+        game.style.backgroundColor = "green";
+    else if(win==-1)
+        game.style.backgroundColor = "red";
+    else
+        game.style.backgroundColor = "DarkOrange";
 }
 
 function displayGameUserBetOn() {
@@ -69,7 +74,8 @@ function displayGameUserBetOn() {
         for(i=0;i<array.length;i++) {
             var idGame = array[i].id;
             if (JSON.stringify(response).includes(idGame)) {
-                changeColorGame(idGame);
+                alert(JSON.stringify(response));
+                changeColorGame(idGame,response[idGame]);
             }
         }
     });

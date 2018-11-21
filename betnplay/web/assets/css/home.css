@@ -9,6 +9,7 @@ body {
 	background-color: #eef3fa;
 	overflow-x: hidden;
 	max-height: 100vh;
+    padding-bottom: 0;
 }
 
 header {

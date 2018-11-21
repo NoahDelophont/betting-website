@@ -54,7 +54,19 @@ function getInfo(id) {
         var tmp4 = tmp3[1].split(':');
         date = tmp2[0] + '/' + tmp[1] + ' ' + tmp4[0] + ':' + tmp4[1];
 
-        updateMatchSelected(id,competition,team1,team2,date);
+        $.ajax({
+            url: 'http://localhost:8000/request/bets/'+id,dataType: 'json',
+            type: 'GET',
+        }).done(function(data) {
+            var buttons = document.getElementById('buttons');
+            if(data.length!=0) {
+                buttons.style.display ="none";
+                updateMatchSelected(id,competition,team1,team2,date);
+            } else {
+                buttons.style.display ="block";
+                updateMatchSelected(id,competition,team1,team2,date);
+            }
+        });
     });
 }
 

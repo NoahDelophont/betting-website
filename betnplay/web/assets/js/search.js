@@ -5,7 +5,7 @@ search.onkeyup = function() {
 
 function getData(filter) {
     $.ajax({
-        url: 'http://localhost:8000/request/'+filter,dataType: 'json',
+        url: ENVIRONNEMENT+'/request/'+filter,dataType: 'json',
         type: 'GET',
     }).done(function(response) {
         $('#separator').nextAll('div').remove();
@@ -68,7 +68,7 @@ function displayGameUserBetOn() {
     var i;
 
     $.ajax({
-        url: 'http://localhost:8000/request/all/bets', dataType: 'json',
+        url: ENVIRONNEMENT+'/request/all/bets', dataType: 'json',
         type: 'GET',
     }).done(function (response) {
         for(i=0;i<array.length;i++) {

@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% set ENVIRONNEMENT = "" %}
+{% set ENVIRONNEMENT = "http://localhost:8000" %}
 {% block stylesheets %}
 
 
@@ -13,6 +13,7 @@
     <!-- Pour l'affichage des details sur un match -->
     <link href="{{ asset('assets/css/search.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('assets/css/bouton.css')}}"/>
+    <script>var ENVIRONNEMENT = "{{ ENVIRONNEMENT }}";</script>
 {% endblock %}
 
 

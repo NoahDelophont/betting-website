@@ -41,7 +41,7 @@ function updateBetSelected(id,competition,team1,team2,d,bet) {
 function getInfo(id) {
 
     $.ajax({
-        url: 'http://localhost:8000/request/'+id,dataType: 'json',
+        url: ENVIRONNEMENT+'/request/'+id,dataType: 'json',
         type: 'GET',
     }).done(function(response) {
         var competition = response['match']['competition']['name'];
@@ -57,7 +57,7 @@ function getInfo(id) {
         date = tmp2[0] + '/' + tmp[1] + ' ' + tmp4[0] + ':' + tmp4[1];
 
         $.ajax({
-            url: 'http://localhost:8000/request/bets/'+id,dataType: 'json',
+            url: ENVIRONNEMENT+'/request/bets/'+id,dataType: 'json',
             type: 'GET',
         }).done(function(data) {
             var buttons = document.getElementById('buttons');
@@ -75,7 +75,7 @@ function getInfo(id) {
 function getBetInfo(id) {
 
     $.ajax({
-        url: 'http://localhost:8000/request/'+id,dataType: 'json',
+        url: ENVIRONNEMENT+'/request/'+id,dataType: 'json',
         type: 'GET',
     }).done(function(response) {
         var competition = response['match']['competition']['name'];
@@ -91,7 +91,7 @@ function getBetInfo(id) {
         date = tmp2[0] + '/' + tmp[1] + ' ' + tmp4[0] + ':' + tmp4[1];
 
         $.ajax({
-            url: 'http://localhost:8000/request/bets/'+id,dataType: 'json',
+            url: ENVIRONNEMENT+'/request/bets/'+id,dataType: 'json',
             type: 'GET',
         }).done(function(response2) {
 

@@ -3,6 +3,7 @@ function updateMatchSelected(id,competition,team1,team2,d) {
     var comp = document.getElementById('competition');
     var date = document.getElementById('date');
     var titre = document.getElementById('titre-match');
+    var sousTitre = document.getElementById('sous-titre-match');
     var betAwayTeam = document.getElementById('betAwayTeam');
     var betHomeTeam = document.getElementById('betHomeTeam');
     var container = (document.getElementById('buttons').childNodes)[1];
@@ -14,6 +15,7 @@ function updateMatchSelected(id,competition,team1,team2,d) {
     betAwayTeam.innerHTML = 'Parier sur ' + team2.split(' ')[0]+'<br/>1.4';
     betHomeTeam.innerHTML = 'Parier sur ' + team1.split(' ')[0]+'<br/>1.5';
     container.id = "button-wrap-"+id;
+    sousTitre.innerHTML = "Pariez sur le match et gagnez plein d'argent !! <img src=\"/assets/images/money-bag.png\"/>";
 }
 
 function updateBetSelected(id,competition,team1,team2,d,bet) {
@@ -61,7 +63,7 @@ function getInfo(id) {
             var buttons = document.getElementById('buttons');
             if(data.length!=0) {
                 buttons.style.display ="none";
-                updateMatchSelected(id,competition,team1,team2,date);
+                updateBetSelected(id,competition,team1,team2,date,data['team']);
             } else {
                 buttons.style.display ="block";
                 updateMatchSelected(id,competition,team1,team2,date);

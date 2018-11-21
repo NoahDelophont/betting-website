@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% set ENVIRONNEMENT = "http://localhost:8000" %}
+{% set ENVIRONNEMENT = "http://localhost:8888/pima/betnplay/web/app_dev.php" %}
 {% block stylesheets %}
 
 
@@ -38,13 +38,17 @@
         {% include 'home/elements/pari.html.twig' %}
     </div>
 
+    <div>
+        {% include 'home/elements/defile.html.twig' %}
+    </div>
+
+
     {% block list_pari %}
     {% endblock %}
 
 
     {% block pari %}
     {% endblock %}
-
 
 {% endblock %}
 

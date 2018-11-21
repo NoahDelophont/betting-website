@@ -17,7 +17,7 @@ function createList(matches) {
     var i;
     var addHtml = "";
     for(i=0;i<matches["matches"].length;i++) {
-        var html = '<div class="row listElt" id="' + matches["matches"][i]['id'] + '" style="cursor:pointer;" onclick="javascript:matchClicked(this)" >';
+        var html = '<div class="row" id="' + matches["matches"][i]['id'] + '" style="cursor:pointer;" onclick="javascript:matchClicked(this)" >';
         html = html + '<div class="col-md-8 Pari">';
         html = html + '<div class="row">';
         html = html + '<div class="col-md-12 col-md-offset-1 NomChampionnat">' + matches['competition']['name'] + '</div></div>';
@@ -38,7 +38,7 @@ function createList(matches) {
         html = html + '<div class="col-md-3 col-md-offset-1 cote">1.5</div>';
         html = html + '<div class="col-md-3 cote">1.3</div>';
         html = html + '<div class="col-md-3 cote">1.4</div>';
-        html = html + '</div></div></div><hr/>';
+        html = html + '</div><hr/></div></div>';
 
         addHtml = addHtml + html;
         //document.getElementById('listMatches').innerHTML = document.getElementById('listMatches').innerHTML + html;
@@ -81,3 +81,24 @@ function displayGameUserBetOn() {
 }
 
 displayGameUserBetOn();
+
+function getPsg(match){
+    var bande = document.getElementById('bandeau');
+
+    bande.innerHTML = match;
+}
+
+function getMatch() {
+    var texte;
+    $.ajax({
+        url: ENVIRONNEMENT+'/request/'+'Paris',dataType: 'json',
+        type: 'GET',
+    }).done(function(response) {
+        if (response["matches"].length >0){
+            texte = '<b>Pariez sur le match ' + response["matches"][0]['homeTeam']['name'] + ' - ' + response["matches"][0]['awayTeam']['name'] + ' pour augmenter vos gains!  ' + '<img src ="https://image.flaticon.com/icons/svg/639/639365.svg" width="20px"/></b>';
+            getPsg(texte);
+        }
+    });
+}
+
+getMatch();

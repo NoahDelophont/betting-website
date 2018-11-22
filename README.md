@@ -15,6 +15,6 @@ Site de paris sportifs en ligne
 | Pilou | Alexandre | alexandre.pilou@ensiie.fr |
 | Rajhi | Heykel | heykel.rajhi@gmail.com |
 
-### Sujet : 
+### Sujet : Site de paris sportifs en ligne
 
 ### Adresse du backlog : https://trello.com/b/ZZtiqz6T/backlog-produit

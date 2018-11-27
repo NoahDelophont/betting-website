@@ -152,7 +152,8 @@ class ApiController extends Controller
                             'utcDate' => $result->getUtcDate(),
                             'homeTeam' => json_decode($result->getHomeTeam(), true),
                             'awayTeam' => json_decode($result->getAwayTeam(), true),
-                            'competition' => array('name'=> "Ligue 1"));
+                            'competition' => array('name'=> "Ligue 1"),
+                            'score' => json_decode($result->getScore(),true));
             $matches = array('match'=>$json);
         }
 

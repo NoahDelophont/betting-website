@@ -18,12 +18,13 @@ function updateMatchSelected(id,competition,team1,team2,d) {
     sousTitre.innerHTML = "Pariez sur le match et gagnez plein d'argent !! <img src=\"/assets/images/money-bag.png\"/>";
 }
 
-function updateBetSelected(id,competition,team1,team2,d,bet) {
+function updateBetSelected(id,competition,team1,team2,d,bet,score=null) {
     var teams = document.getElementById('nomEquipes');
     var comp = document.getElementById('competition');
     var date = document.getElementById('date');
     var titre = document.getElementById('titre-match');
     var sousTitre = document.getElementById('sous-titre-match');
+    var scoreMatch = document.getElementById('score-match');
 
     teams.innerHTML = team1 + ' - ' + team2;
     comp.innerHTML = competition;
@@ -35,6 +36,12 @@ function updateBetSelected(id,competition,team1,team2,d,bet) {
         sousTitre.innerHTML = "Vous avez parié sur un match nul";
     } else if (bet==2) {
         sousTitre.innerHTML = "Vous avez parié sur une victoire de "+team2;
+    }
+
+    if(score==null) {
+        scoreMatch.innerHTML = "";
+    } else {
+        scoreMatch.innerHTML = score["fullTime"]["homeTeam"]+' - '+score["fullTime"]["awayTeam"];
     }
 }
 
@@ -82,6 +89,9 @@ function getBetInfo(id) {
 
         var team1 = response['match']['homeTeam']['name'];
         var team2 = response['match']['awayTeam']['name'];
+        var score = null;
+        if(response['match']['score']['winner']!=null)
+            score = response['match']['score'];
 
         var date = response['match']['utcDate'];
         var tmp = date.split('-');
@@ -95,7 +105,7 @@ function getBetInfo(id) {
             type: 'GET',
         }).done(function(response2) {
 
-            updateBetSelected(id,competition,team1,team2,date,response2['team']);
+            updateBetSelected(id,competition,team1,team2,date,response2['team'],score);
 
         });
     });

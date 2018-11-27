@@ -345,4 +345,20 @@ class ApiController extends Controller
             array("users" => $result)
         );
     }
+    
+    /**
+     * @Route("/fiche", name="fiche_user")
+     */
+    public function ficheAction(){
+        $user = $this->getUser();
+        $matches = $this->getDoctrine()->getRepository('AppBundle:Bet')->getThreeLastBets($user);
+        $datas = [];
+        foreach ($matches as $match){
+            $id = $match->getIdGame();
+            $info_match = $this->getDoctrine()->getRepository('AppBundle:Game')->getInfos($id);
+            array_push($datas, $info_match);
+        }
+
+        return $this->render('home/elements/fiche_user.html.twig');
+    }
 }

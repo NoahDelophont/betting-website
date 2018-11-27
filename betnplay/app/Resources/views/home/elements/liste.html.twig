@@ -1,15 +1,13 @@
 
 
-{% block stylesheets %}
-
-    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-{% endblock %}
-
 {% block body %}
     <div class="container" id="list">
+
+        {% if matches is defined %}
+            {% set placeholder = "Search for bet" %}
+        {% elseif users is defined %}
+            {% set placeholder = "Search user" %}
+        {% endif %}
 
         <div class="col-md-8">
 
@@ -19,7 +17,7 @@
                         <div class="col-md-8">
                             <div id="custom-search-input">
                                 <div class="input-group col-md-12">
-                                    <input type="text" class="form-control input-lg" placeholder="Search for bet" id="search" autocomplete="off"/>
+                                    <input type="text" class="form-control input-lg" placeholder="{{ placeholder }}" id="search" autocomplete="off"/>
                                     <span class="input-group-btn">
                                     <button class="btn btn-info btn-lg" type="button">
                                         <i class="glyphicon glyphicon-search"></i>

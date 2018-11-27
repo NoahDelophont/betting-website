@@ -54,6 +54,8 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('assets/js/getInfoMatch.js') }}"></script>
-    <script src="{{ asset('assets/js/search.js') }}"></script>
+    {% if matches is defined %}
+        <script src="{{ asset('assets/js/getInfoMatch.js') }}"></script>
+        <script src="{{ asset('assets/js/search.js') }}"></script>
+    {% endif %}
 {% endblock %}

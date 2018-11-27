@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class BetRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getThreeLastBets($user){
+
+        $em = $this->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Bet');
+        $query = $repository->createQueryBuilder('m')
+             ->where("m.idUser = :u")
+             ->setMaxResults(3)
+             ->setParameter('u',$user)
+             ->getQuery();
+        $result = $query->getResult();
+
+        return $result;
+    }
 }

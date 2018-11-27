@@ -161,6 +161,22 @@ class ApiController extends Controller
 
 
     /**
+     * @Route("/request/user/{user}", name="UserRequest")
+     */
+    public function requestUsersAction($user) {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:User');
+        $query = $repository->createQueryBuilder('u')
+            ->where('u.username LIKE :user')
+            ->setParameter('user', '%'.$user.'%')
+            ->getQuery();
+        $users = $query->getResult();
+        $result = $this->convertUserArrayToArray($users);
+
+        return new JsonResponse($result);
+    }
+
+    /**
      * @Route("/request/bets/{idMatch}", name="betrequest")
      */
     public function requestBetOnMatchAction($idMatch) {

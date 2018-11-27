@@ -32,57 +32,103 @@
                 </div>
 
                 <div id="separator" style="height: 60px;"></div>
-                {% set n = matches["matches"]|length %}
-                {% if n>30 %}
-                    {% set n = 30 %}
-                {% else %}
-                    {% set n = n-1 %}
-                {%  endif %}
-                {% if n>=0 %}
-                    {% if team is defined %}
-                        {% set functionJs = "javascript:matchClicked(this,'true')" %}
-                    {% else %}
-                        {% set functionJs = "javascript:matchClicked(this)" %}
-                    {%  endif %}
-                    {% for i in 0..n %}
-                        {% set date1 = matches["matches"][i]['utcDate']|split('-') %}
-                        {% set date1_1 = date1[2]|split('T') %}
-                        {% set date2 = matches["matches"][i]['utcDate']|split('T') %}
-                        {% set date3 = date2[1]|split(':') %}
-                        {% set dateAffichee =  date1_1[0] ~ '/' ~ date1[1] ~ ' ' ~ date3[0] ~ ':' ~ date3[1]%}
 
-                        <div class="row listElt" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="{{ functionJs }}" >
-                            <div class="col-md-8 Pari">
-                                <div class="row">
-                                    <div class="col-md-12 col-md-offset-1 NomChampionnat">
-                                        {{ matches['competition']['name'] }}
+                {% if matches is defined %}
+                    {% set n = matches["matches"]|length %}
+                    {% if n>30 %}
+                        {% set n = 30 %}
+                    {% else %}
+                        {% set n = n-1 %}
+                    {%  endif %}
+                    {% if n>=0 %}
+                        {% if team is defined %}
+                            {% set functionJs = "javascript:matchClicked(this,'true')" %}
+                        {% elseif users is defined %}
+                            {% set functionJs = "" %}
+                        {% else %}
+                            {% set functionJs = "javascript:matchClicked(this)" %}
+                        {%  endif %}
+                        {% for i in 0..n %}
+                            {% set date1 = matches["matches"][i]['utcDate']|split('-') %}
+                            {% set date1_1 = date1[2]|split('T') %}
+                            {% set date2 = matches["matches"][i]['utcDate']|split('T') %}
+                            {% set date3 = date2[1]|split(':') %}
+                            {% set dateAffichee =  date1_1[0] ~ '/' ~ date1[1] ~ ' ' ~ date3[0] ~ ':' ~ date3[1]%}
+
+                            <div class="row listElt" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="{{ functionJs }}" >
+                                <div class="col-md-8 Pari">
+                                    <div class="row">
+                                        <div class="col-md-12 col-md-offset-1 NomChampionnat">
+                                            {{ matches['competition']['name'] }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-md-offset-1 NomEquipe">
-                                        {{ matches["matches"][i]['homeTeam']['name'] }} - {{ matches["matches"][i]['awayTeam']['name'] }}
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-1 NomEquipe">
+                                            {{ matches["matches"][i]['homeTeam']['name'] }} - {{ matches["matches"][i]['awayTeam']['name'] }}
+                                        </div>
+                                        <div class="col-md-3 col-md-offset-2">
+                                            {{ dateAffichee }}
+                                        </div>
                                     </div>
-                                    <div class="col-md-3 col-md-offset-2">
-                                        {{ dateAffichee }}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3 col-md-offset-1 cote">
-                                        1.5
-                                    </div>
-                                    <div class="col-md-3 cote">
-                                        1.3
-                                    </div>
-                                    <div class="col-md-3 cote">
-                                        1.4
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1 cote">
+                                            1.5
+                                        </div>
+                                        <div class="col-md-3 cote">
+                                            1.3
+                                        </div>
+                                        <div class="col-md-3 cote">
+                                            1.4
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <hr/>
+                            <hr/>
+                        {% endfor %}
+                    {%  endif %}
+                {% elseif users is defined %}
+                    {% set n = users|length %}
+                    {% if n>30 %}
+                        {% set n = 30 %}
+                    {% else %}
+                        {% set n = n-1 %}
+                    {%  endif %}
+                    {% if n>=0 %}
+                        {% for i in 0..n %}
+                            <div class="row listElt" >
+                                <div class="col-md-8 Pari">
+                                    <div class="row">
+                                        <div class="col-md-12 col-md-offset-1 NomChampionnat">
+                                            Level {{ users[i]['level'] }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-1 NomEquipe">
+                                            @{{ users[i]['username'] }}
+                                        </div>
+                                        <div class="col-md-3 col-md-offset-2">
+                                            Ratio: 10%
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1 cote">
 
-                    {% endfor %}
+                                        </div>
+                                        <div class="col-md-3 cote">
+
+                                        </div>
+                                        <div class="col-md-3 cote">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                        {% endfor %}
+                    {%  endif %}
                 {%  endif %}
+
+
             </div>
 
         </div>

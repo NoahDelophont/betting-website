@@ -24,9 +24,26 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="level",type="integer")
+     */
+    private $level;
+
 
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    public function setLevel($level)
+    {
+        $this->level = $level;
     }
 }

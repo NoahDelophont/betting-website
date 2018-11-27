@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Bet;
 use AppBundle\Entity\Game;
 use AppBundle\Entity\LastUpdated;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -284,4 +285,33 @@ class ApiController extends Controller
         return $this->redirectToRoute('betpage');
     }
 
+
+    public function convertUserToArray($user) {
+        $username = $user->getUsername();
+        $level = $user->getLevel();
+        return array("username"=>$username,"level"=>$level);
+    }
+
+    public function convertUserArrayToArray($users) {
+        $result = array();
+        for($i=0;$i<count($users);$i++) {
+            array_push($result,$this->convertUserToArray($users[$i]));
+        }
+        return $result;
+    }
+
+    /**
+     * @Route("/users", name="usersAction")
+     */
+    public function usersAction() {
+
+        $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
+        $users = $bdd_user->findAll();
+        $result = $this->convertUserArrayToArray($users);
+
+        return $this->render(
+            'home/home.html.twig',
+            array("users" => $result)
+        );
+    }
 }

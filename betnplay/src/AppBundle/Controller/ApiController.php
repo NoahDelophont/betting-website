@@ -176,6 +176,19 @@ class ApiController extends Controller
         return new JsonResponse($result);
     }
 
+
+    /**
+     * @Route("/request/all/user", name="AllUserRequest")
+     */
+    public function requestAllUsersAction() {
+        $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
+        $users = $bdd_user->findAll();
+        $result = $this->convertUserArrayToArray($users);
+
+        return new JsonResponse($result);
+    }
+
+
     /**
      * @Route("/request/bets/{idMatch}", name="betrequest")
      */

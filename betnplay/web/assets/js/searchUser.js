@@ -4,14 +4,25 @@ search.onkeyup = function() {
 }
 
 function getData(filter) {
-    $.ajax({
-        url: ENVIRONNEMENT+'/request/user/'+filter,dataType: 'json',
-        type: 'GET',
-    }).done(function(response) {
-        $('#separator').nextAll('div').remove();
-        $('#separator').nextAll('hr').remove();
-        createList(response);
-    });
+    if(filter!="") {
+        $.ajax({
+            url: ENVIRONNEMENT + '/request/user/' + filter, dataType: 'json',
+            type: 'GET',
+        }).done(function (response) {
+            $('#separator').nextAll('div').remove();
+            $('#separator').nextAll('hr').remove();
+            createList(response);
+        });
+    } else {
+        $.ajax({
+            url: ENVIRONNEMENT + '/request/all/user', dataType: 'json',
+            type: 'GET',
+        }).done(function (response) {
+            $('#separator').nextAll('div').remove();
+            $('#separator').nextAll('hr').remove();
+            createList(response);
+        });
+    }
 }
 
 function createList(users) {

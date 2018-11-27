@@ -10,4 +10,18 @@ namespace AppBundle\Repository;
  */
 class GameRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getInfos($id){
+        $em = $this->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Game');
+        $query = $repository->createQueryBuilder('i')
+            ->select('i.homeTeam')
+            ->addSelect('i.awayTeam')
+            ->where("i.apiId = :id")
+            ->setParameter('id',$id)
+            ->getQuery();
+        $result = $query->getResult();
+
+        return $result;
+    }
+    
 }

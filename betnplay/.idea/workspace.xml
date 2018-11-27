@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cfbd46f1-4c3b-4dbf-ad16-7f24bfa5c346" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/assets/js/getInfoMatch.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/js/getInfoMatch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assets/js/searchUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/assets/js/searchUser.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,9 +58,9 @@
           <entry key="css" value="8" />
           <entry key="gitignore" value="4" />
           <entry key="htaccess" value="1" />
-          <entry key="js" value="11" />
+          <entry key="js" value="12" />
           <entry key="php" value="55" />
-          <entry key="twig" value="48" />
+          <entry key="twig" value="49" />
           <entry key="xml" value="1" />
           <entry key="yaml" value="3" />
           <entry key="yml" value="19" />
@@ -70,10 +69,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="8" />
-          <entry key="JavaScript" value="11" />
+          <entry key="JavaScript" value="12" />
           <entry key="PHP" value="55" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Twig" value="48" />
+          <entry key="Twig" value="49" />
           <entry key="XML" value="1" />
           <entry key="YAML" value="22" />
           <entry key="htaccess" value="1" />
@@ -82,18 +81,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="2026" />
-          <entry key="js" value="2620" />
-          <entry key="php" value="4999" />
-          <entry key="twig" value="2090" />
+          <entry key="js" value="2628" />
+          <entry key="php" value="5029" />
+          <entry key="twig" value="2113" />
           <entry key="yml" value="154" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2026" />
-          <entry key="JavaScript" value="2620" />
-          <entry key="PHP" value="4999" />
-          <entry key="Twig" value="2090" />
+          <entry key="JavaScript" value="2628" />
+          <entry key="PHP" value="5029" />
+          <entry key="Twig" value="2113" />
           <entry key="YAML" value="154" />
         </counts>
       </usages-collector>
@@ -108,20 +107,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="154" column="71" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="71" />
+            <state relative-caret-position="174">
+              <caret line="95" column="102" selection-start-line="95" selection-start-column="102" selection-end-line="95" selection-end-column="102" />
+              <folding>
+                <element signature="e#2590#2613#0#HTML" expanded="true" />
+                <element signature="e#4798#4821#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig">
+        <entry file="file://$PROJECT_DIR$/web/assets/js/searchUser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="103">
+              <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+              <folding>
+                <element signature="e#476#786#0" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="322" column="40" selection-start-line="322" selection-start-column="40" selection-end-line="322" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -144,10 +160,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/assets/js/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
+            <state relative-caret-position="1364">
               <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -211,14 +227,14 @@
         <option value="$PROJECT_DIR$/web/assets/css/bouton.css" />
         <option value="$PROJECT_DIR$/web/assets/css/search.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/home/home.html.twig" />
-        <option value="$PROJECT_DIR$/web/assets/js/searchUser.js" />
         <option value="$PROJECT_DIR$/web/assets/js/search.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" />
         <option value="$PROJECT_DIR$/web/assets/js/getInfoMatch.js" />
         <option value="$PROJECT_DIR$/web/assets/css/home.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig" />
+        <option value="$PROJECT_DIR$/web/assets/js/searchUser.js" />
+        <option value="$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig" />
       </list>
     </option>
   </component>
@@ -441,15 +457,15 @@
       <workItem from="1542727931031" duration="2344000" />
       <workItem from="1542822313427" duration="15227000" />
       <workItem from="1542883077949" duration="809000" />
-      <workItem from="1543334322963" duration="8467000" />
+      <workItem from="1543334322963" duration="9692000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84099000" />
+    <option name="totallyTimeSpent" value="85324000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31316188" />
@@ -672,13 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Game.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-850">
@@ -700,31 +709,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/assets/js/searchUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="154" column="71" selection-start-line="154" selection-start-column="71" selection-end-line="154" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -744,10 +732,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/assets/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
+        <state relative-caret-position="1364">
           <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/pari.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="322" column="40" selection-start-line="322" selection-start-column="40" selection-end-line="322" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/js/searchUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding>
+            <element signature="e#476#786#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/home/elements/liste.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="95" column="102" selection-start-line="95" selection-start-column="102" selection-end-line="95" selection-end-column="102" />
+          <folding>
+            <element signature="e#2590#2613#0#HTML" expanded="true" />
+            <element signature="e#4798#4821#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

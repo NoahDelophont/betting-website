@@ -29,7 +29,7 @@ function createList(users) {
     var i;
     var addHtml = "";
     for(i=0;i<users.length;i++) {
-        var html = '<div class="row">';
+        var html = '<div class="row listElt" id="users[i][\'id\']" style="cursor:pointer;" >';
         html = html + '<div class="col-md-8 Pari">';
         html = html + '<div class="row">';
         html = html + '<div class="col-md-12 col-md-offset-1 NomChampionnat">Level ' + users[i]['level'] + '</div></div>';

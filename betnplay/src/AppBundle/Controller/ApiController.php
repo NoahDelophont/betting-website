@@ -319,7 +319,8 @@ class ApiController extends Controller
     public function convertUserToArray($user) {
         $username = $user->getUsername();
         $level = $user->getLevel();
-        return array("username"=>$username,"level"=>$level);
+        $id = $user->getId();
+        return array("username"=>$username,"level"=>$level,"id"=>$id);
     }
 
     public function convertUserArrayToArray($users) {

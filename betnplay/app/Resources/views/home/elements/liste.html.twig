@@ -93,7 +93,7 @@
                     {%  endif %}
                     {% if n>=0 %}
                         {% for i in 0..n %}
-                            <div class="row listElt" >
+                            <div class="row listElt" id="{{ users[i]['id'] }}" style="cursor:pointer;">
                                 <div class="col-md-8 Pari">
                                     <div class="row">
                                         <div class="col-md-12 col-md-offset-1 NomChampionnat">

@@ -361,4 +361,20 @@ class ApiController extends Controller
 
         return $this->render('home/elements/fiche_user.html.twig');
     }
+    
+    
+    public function Winner($idMatch){
+        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
+        $game = $bdd_game->findBy(array('apiId'=>$idMatch));
+        $score = json_decode($game[0]->getScore(),TRUE);
+        if($score["winner"] == "HOME_TEAM"){
+            return(0);
+        }
+        else if($score["winner"] == "AWAY_TEAM"){
+            return(2);
+        }
+        else{
+            return(1);
+        }
+    }
 }

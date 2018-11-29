@@ -62,6 +62,7 @@ header {
     overflow-x: auto;
     padding-left: 0;
     margin-left: 0;
+	z-index: 15;
 }
 
 
@@ -156,7 +157,8 @@ footer {
 
 .user-profile  .username {
 	margin: auto;
-	margin-top: -4.40em;
+	/*margin-top: -4.40em;*/
+    margin-top: -25px;
 	margin-left: 5.80em;
 	color: #658585;
 	font-size: 1.53em;
@@ -181,16 +183,20 @@ footer {
 }
 .user-profile > img.avatar {
 	padding: .7em;
-	margin-left: .3em;
-	margin-top: .3em;
-	height: 6.23em;
-	width: 6.23em;
+	/*margin-left: .3em;
+	margin-top: .3em;*/
+	/*height: 6.23em;
+	width: 6.23em;*/
+    margin: 0;
+    height: 10px;
+    width: 10px;
 	border-radius: 18em;
 }
 
 .user-profile ul.data {
 	margin: auto;
-	margin-top: 10%;
+	/*margin-top: 10%;*/
+    margin-top: 5px;
 	margin-bottom: 4%;
 	height: auto;
 	background: #086c50;
@@ -218,7 +224,7 @@ footer {
 
 
 .margin-top {
-	margin-top: 5%;
+	margin-top: 0;
 }
 
 .listPari {

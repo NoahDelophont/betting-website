@@ -377,4 +377,117 @@ class ApiController extends Controller
             return(1);
         }
     }
+
+    /**
+     * @Route("/ok/{idMatch}", name="betaction")
+     */
+    public function CoteAction($idMatch){
+
+        $this->winner("238996");
+        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
+        $result = $bdd_game->findOneBy(array('apiId'=>$idMatch));
+        $idEquipe1 = $result->getHomeTeam();
+        $idEquipe2 = $result->getAwayTeam();
+        if($idEquipe1 == 524){
+            $cote1 = 1.2;
+            $cote2 = 4.6;
+
+
+            $coteNul = ($cote1 + $cote2)/2 + 0.3;
+
+        }
+        else if($idEquipe2== 524){
+            $cote2 = 1.3;
+            $cote1 = 4.5;
+
+            $coteNul = ($cote1 + $cote2)/2 + 0.3;
+
+        }
+        else {
+            $cote1 = 1.3;
+            $cote2 = 1.3;
+
+            $cote2 += 0.1;
+
+            $cote1 += $this->nb_match_consecutifs($idEquipe2);
+            $cote2 += $this->nb_match_consecutifs($idEquipe1);
+
+            $coteNul = ($cote1 + $cote2)/2 + 0.5;
+
+
+        }
+        $result->setCote(array($cote1,$coteNul,$cote2));
+        return $this->render('default/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    public function nb_match_consecutifs($idEquipe){
+        $matchEq = $this->findMatch("2018-08-10T18:45:00Z",$idEquipe);
+        $count = 0;
+        foreach ($matchEq as $match){
+            $score = json_decode($match->getScore(),TRUE);
+            if($score["winner"] == "HOME_TEAM" && $match->getHomeTeam() == $idEquipe){
+                $count++;
+            }
+            else if($score["winner"] == "AWAY_TEAM" && $match->getAwayTeam() == $idEquipe){
+                $count++;
+            }
+        }
+        switch ($count){
+            case 0:
+                return 0;
+                break;
+            case 1: return 0.2;
+                break;
+            case 2: return 0.4;
+                break;
+            case 3: return 0.9;
+                break;
+            case 4: return 1.2;
+                break;
+            case 5: return 1.6;
+                break;
+            default: break;
+        }
+    }
+
+    public function findMatch($Date, $idTeam)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Game');
+        $query = $repository->createQueryBuilder('m')
+            ->where("m.homeTeam LIKE :word ")
+            ->orWhere("m.awayTeam LIKE :word")
+            ->andWhere("m.utcDate > :test")
+            ->orderBy("m.utcDate")
+            ->setMaxResults(5)
+            ->setParameter('word', '%'.$idTeam.'%')
+            ->setParameter('test', $Date)
+            ->getQuery();
+        $result = $query->getResult();
+        return $result;
+    }
+
+
+    /**
+     * @Route("/test/{userId}", name="betaction")
+     */
+    public function Betnb($userId){
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $bets = $bdd_bet->findBy(array("idUser"=>$userId));
+        $nbVic = 0;
+        $nbParis = 0;
+        foreach ($bets as $bet){
+            var_dump($bet);
+            if($bet->getTeam()==$bet->getWin()){
+                $nbVic ++;
+                $nbParis ++;
+            }
+            else{
+                $nbVic ++;
+            }
+        }
+
+    }
 }

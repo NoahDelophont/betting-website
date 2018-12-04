@@ -491,6 +491,40 @@ class ApiController extends Controller
         }
 
     }
+
+    /**
+     * @Route("/request/user/{id}", name="allbetrequest")
+     */
+    public function requestUserInfo($id) {
+        $em = $this->getDoctrine()->getManager();
+        $result = array();
+
+
+        $date_current = date('Y-m-d').'T'.date('h:m:00').'Z';
+        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $bets = $bdd_bet->findBy(array('idUser'=>$user));
+
+        for($i=0;$i<count($bets);$i++) {
+            $apiId = $bets[$i]->getIdGame();
+            $game = $bdd_game->findOneBy(array('apiId'=>$apiId));
+            $date = $game->getUtcDate();
+            $status = 0;
+            if(strcmp($date_current,$date)>=0) {
+                $team = $bets[$i]->getTeam();
+                $score = json_decode($game->getScore(), true);
+                if($score['winner']=='HOME_TEAM' && $team == 0)
+                    $status = 1;
+                elseif ($score['winner']=='AWAY_TEAM' && $team == 2)
+                    $status = 1;
+                else
+                    $status = -1;
+            }
+            $result[$apiId] = $status;
+        }
+
+        return new JsonResponse($result);
+    }
     
     /** TEST */
 }

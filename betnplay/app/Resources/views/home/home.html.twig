@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% set ENVIRONNEMENT = "http://localhost:8888/betnplay/web/app_dev.php" %}
+{% set ENVIRONNEMENT = "http://localhost:8888/pima/betnplay/web/app_dev.php" %}
 {% block stylesheets %}
 
 
@@ -48,12 +48,14 @@
             {% include 'home/elements/pari.html.twig' %}
         </div>
     {% elseif users is defined %}
-        <div class="col-md-4 search-bar">
-            {% include 'home/elements/liste.html.twig' %}
-        </div>
-        <div>
-            {% include 'home/elements/fiche_user.html.twig' %}
-        </div>
+        {% for user in users %}
+            <div class="col-md-4 search-bar">
+                {% include 'home/elements/liste.html.twig' %}
+            </div>
+            <div>
+                {% include 'home/elements/fiche_user.html.twig' %}
+            </div>
+        {% endfor %}
     {% endif %}
 
     {% block list_pari %}

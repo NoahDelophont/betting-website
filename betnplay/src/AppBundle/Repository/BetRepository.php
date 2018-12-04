@@ -23,4 +23,6 @@ class BetRepository extends \Doctrine\ORM\EntityRepository
 
         return $result;
     }
+
+    
 }

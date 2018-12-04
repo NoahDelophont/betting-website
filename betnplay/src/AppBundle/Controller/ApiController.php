@@ -339,6 +339,7 @@ class ApiController extends Controller
         $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
         $users = $bdd_user->findAll();
         $result = $this->convertUserArrayToArray($users);
+        dump($result);
 
         return $this->render(
             'home/home.html.twig',

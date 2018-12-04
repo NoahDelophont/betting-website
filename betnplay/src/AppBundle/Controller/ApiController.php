@@ -380,7 +380,11 @@ class ApiController extends Controller
     }
 
     public function getUserInfo($idUser) {
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $betsWin = count($bdd_bet->findBy(array("win"=>1,"id"=>$idUser)));
+        $betsLost = count($bdd_bet->findBy(array("win"=>-1,"id"=>$idUser)));
 
+        return array("win"=>$betsWin,"lost"=>$betsLost);
     }
 
     /**
@@ -392,9 +396,12 @@ class ApiController extends Controller
         $users = $bdd_user->findAll();
         $result = $this->convertUserArrayToArray($users);
 
+        $fstUser = null;
+        if(count($result)>0) $fstUser = $this->getUserInfo($result[0]["id"]);
+
         return $this->render(
             'home/home.html.twig',
-            array("users" => $result,"first_user"=>$fstUser)
+            array("users" => $result,"fstUser"=>$fstUser)
         );
     }
     

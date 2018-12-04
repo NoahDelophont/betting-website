@@ -213,6 +213,9 @@ class ApiController extends Controller
      */
     public function requestUsersAction($user) {
         $em = $this->getDoctrine()->getManager();
+
+        
+
         $repository = $em->getRepository('AppBundle:User');
         $query = $repository->createQueryBuilder('u')
             ->where('u.username LIKE :user')

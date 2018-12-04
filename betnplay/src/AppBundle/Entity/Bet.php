@@ -44,6 +44,14 @@ class Bet
 
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="win", type="integer")
+     */
+    private $win;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -123,6 +131,31 @@ class Bet
     public function getTeam()
     {
         return $this->team;
+    }
+
+
+    /**
+     * Set win
+     *
+     * @param integer $win
+     *
+     * @return Bet
+     */
+    public function setWin($win)
+    {
+        $this->win = $win;
+
+        return $this;
+    }
+
+    /**
+     * Get win
+     *
+     * @return int
+     */
+    public function getWin()
+    {
+        return $this->win;
     }
 }
 

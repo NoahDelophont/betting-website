@@ -390,7 +390,7 @@ class ApiController extends Controller
     /**
      * @Route("/users", name="usersAction")
      */
-    public function usersAction() {
+    /**public function usersAction() {
 
         $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
         $users = $bdd_user->findAll();
@@ -403,7 +403,7 @@ class ApiController extends Controller
             'home/home.html.twig',
             array("users" => $result,"fstUser"=>$fstUser)
         );
-    }
+    }*/
     
     /**
      * @Route("/fiche", name="fiche_user")
@@ -550,4 +550,17 @@ class ApiController extends Controller
         }
 
     }
+
+    /**
+     * @Route("/request/user/{id}", name="allbetrequest")
+     */
+    public function requestUserInfo($id) {
+        $em = $this->getDoctrine()->getManager();
+        $result = array();
+
+
+        return new JsonResponse($result);
+    }
+    
+    /** TEST */
 }

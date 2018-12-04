@@ -45,6 +45,14 @@ function updateBetSelected(id,competition,team1,team2,d,bet,score=null) {
     }
 }
 
+function userSelected(id) {
+    var wons = document.getElementById('wons');
+    var losts = document.getElementById('losts');
+
+    wons.innerHTML = wons;
+    losts.innerHTML = losts;
+}
+
 function getInfo(id) {
 
     $.ajax({
@@ -109,6 +117,16 @@ function getBetInfo(id) {
 
         });
     });
+}
+
+function getUserInfo(id) {
+    $.ajax({
+        url: ENVIRONNEMENT+'/request/user'+id, dataType: 'json',
+        type: 'GET',
+    }).done(function (response) {
+        var wons = response['']
+
+    })
 }
 
 function matchClicked(elt,bet = "false") {

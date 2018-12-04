@@ -96,6 +96,53 @@ class ApiController extends Controller
             $matches = array('competition'=>array('id'=>2015,'name'=>'Ligue 1'),'matches'=>$json);
         }
 
+
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $lastBetUpdate = $bdd_lastUpdated->findOneBy(array('data'=>'bet')) ;
+        if($lastBetUpdate!=NULL) {
+            $up_date = $lastBetUpdate->getUtcDate();
+            if($up_date!=$date) {
+                $upToDate = false;
+                $lastBetUpdate->setUtcDate($date);
+            }
+        } else {
+            $entity = new LastUpdated();
+            $entity->setData('bet');
+            $entity->setUtcDate($date);
+            $upToDate = false;
+            $em->persist($entity);
+            $em->flush();
+        }
+
+        if(!$upToDate) {
+            $results = $bdd_game->findAll();
+            for($i=0;$i<count($results);$i++) {
+                $idGame = $results[$i]->getApiId();
+                $bets = $bdd_bet->findByIdGame($idGame);
+                $winGame = (json_decode($results[$i]->getScore(), true))['winner'];
+                if ($winGame != null) {
+                    for ($j = 0; $j < count($bets); $j++) {
+                        $winBet = $bets[$j]->getWin();
+                        if ($winGame != null && $winBet != 0) {
+                            break;
+                        } else {
+                            $betUser = $bets[$j]->getTeam();
+                            if( ($winGame=="HOME_TEAM" && $betUser==0) ||
+                                ($winGame=="AWAY_TEAM" && $betUser==2) ||
+                                ($winGame=="DRAW" && $betUser==1)) {
+                                $bets[$j]->setWin(1);
+                            } else {
+                                $bets[$j]->setWin(-1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $em->flush();
+
+
+
         return $this->render(
             'home/home.html.twig',
             array("matches" => $matches,"homepage"=>true)
@@ -202,7 +249,7 @@ class ApiController extends Controller
         $bet = $bdd_bet->findOneBy(array('idUser'=>$user,'idGame'=>$idMatch));
 
         if($bet!=NULL) {
-            $result = array("id_game"=>$idMatch,"team"=>$bet->getTeam());
+            $result = array("id_game"=>$idMatch,"team"=>$bet->getTeam(),"win"=>$bet->getWin());
         }
 
         return new JsonResponse($result);
@@ -215,20 +262,21 @@ class ApiController extends Controller
      */
     public function requestAllBetsOnMatchAction() {
         $user = $this->getUser()->getId();
-        $em = $this->getDoctrine()->getManager();
+        //$em = $this->getDoctrine()->getManager();
         $result = array();
 
-        $date_current = date('Y-m-d').'T'.date('h:m:00').'Z';
-        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
+        /*$date_current = date('Y-m-d').'T'.date('h:m:00').'Z';
+        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');*/
         $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
         $bets = $bdd_bet->findBy(array('idUser'=>$user));
 
         for($i=0;$i<count($bets);$i++) {
             $apiId = $bets[$i]->getIdGame();
-            $game = $bdd_game->findOneBy(array('apiId'=>$apiId));
+            /*$game = $bdd_game->findOneBy(array('apiId'=>$apiId));
             $date = $game->getUtcDate();
             $status = 0;
             if(strcmp($date_current,$date)>=0) {
+                $status = $bets[$i]->getWin();
                 $team = $bets[$i]->getTeam();
                 $score = json_decode($game->getScore(), true);
                 if($score['winner']=='HOME_TEAM' && $team == 0)
@@ -237,8 +285,8 @@ class ApiController extends Controller
                     $status = 1;
                 else
                     $status = -1;
-            }
-            $result[$apiId] = $status;
+            }*/
+            $result[$apiId] = $bets[$i]->getWin();
         }
 
         return new JsonResponse($result);
@@ -331,21 +379,24 @@ class ApiController extends Controller
         return $result;
     }
 
+    public function getUserInfo($idUser) {
+
+    }
+
     /**
      * @Route("/users", name="usersAction")
      */
-    public function usersAction() {
+    /**public function usersAction() {
 
         $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
         $users = $bdd_user->findAll();
         $result = $this->convertUserArrayToArray($users);
-        dump($result);
 
         return $this->render(
             'home/home.html.twig',
-            array("users" => $result)
+            array("users" => $result,"first_user"=>$fstUser)
         );
-    }
+    }*/
     
     /**
      * @Route("/fiche", name="fiche_user")
@@ -364,10 +415,11 @@ class ApiController extends Controller
     }
     
     
-    public function Winner($idMatch){
+    public function winner($idMatch){
         $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
-        $game = $bdd_game->findBy(array('apiId'=>$idMatch));
-        $score = json_decode($game[0]->getScore(),TRUE);
+        $game = $bdd_game->findOneBy(array('apiId' => $idMatch));
+        $gameScore = $game->getScore();
+        $score = json_decode($gameScore, TRUE);
         if($score["winner"] == "HOME_TEAM"){
             return(0);
         }
@@ -499,29 +551,6 @@ class ApiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $result = array();
 
-
-        $date_current = date('Y-m-d').'T'.date('h:m:00').'Z';
-        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
-        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
-        $bets = $bdd_bet->findBy(array('idUser'=>$user));
-
-        for($i=0;$i<count($bets);$i++) {
-            $apiId = $bets[$i]->getIdGame();
-            $game = $bdd_game->findOneBy(array('apiId'=>$apiId));
-            $date = $game->getUtcDate();
-            $status = 0;
-            if(strcmp($date_current,$date)>=0) {
-                $team = $bets[$i]->getTeam();
-                $score = json_decode($game->getScore(), true);
-                if($score['winner']=='HOME_TEAM' && $team == 0)
-                    $status = 1;
-                elseif ($score['winner']=='AWAY_TEAM' && $team == 2)
-                    $status = 1;
-                else
-                    $status = -1;
-            }
-            $result[$apiId] = $status;
-        }
 
         return new JsonResponse($result);
     }

@@ -3,16 +3,22 @@
 {% block body %}
 <div class="user-profile" id="pari-selectionne">
     <img class="avatar" src="#" alt="Profile" />
-    <div class="username">Username</div>
-    <div class="bio text-medium"> <img src="{{ asset('assets/images/stars.png') }}" style="width: 15%"> Level of the user </div>
+    <div class="username"> {{ users[0]['username'] }}</div>
+    <div class="bio text-medium"> <img src="{{ asset('assets/images/stars.png') }}" style="width: 15%"> This player is on the level {{ users[0]['level'] }}</div>
 
-
+    {% if fstUser is defined %}
+        {% set betWin = fstUser["win"] ~ ' won bets' %}
+        {% set betLost = fstUser["lost"] ~ ' lost bets' %}
+    {% else %}
+        {% set betWin = '' %}
+        {% set betLost = '' %}
+    {% endif %}
     <ul class="data margin-top">
         <li>
-            <span class="nb_victory"> 10 won bets</span>
+            <span class="nb_victory" id="wons">{{ betWin }}</span>
         </li>
         <li>
-            <span class="nb_defeat"> 2 lost bets</span>
+            <span class="nb_defeat" id="losts">{{ betLost }}</span>
         </li>
     </ul>
 

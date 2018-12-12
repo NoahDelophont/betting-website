@@ -17,7 +17,7 @@ function updateUserSelected2(match,pari,score,nb) {
 
     matchBet.innerHTML = match;
     pariVND.innerHTML = pari;
-    realScore.innerHTML = score;
+    realScore.innerHTML = "Score réel: "+score;
 }
 
 function getUserInfo(id) {
@@ -47,13 +47,11 @@ function getUserInfo(id) {
                 var match = homeTeam+' - '+awayTeam;
                 var pari = "Pari: ";
                 if(team==0)
-                    pari+'Victoire';
+                    pari = pari+'Domicile';
                 else if(team==1)
-                    pari+'Nul';
+                    pari = pari+'Nul';
                 else if(team==2)
-                    pari+'Défaite';
-                else
-                    alert('pb');
+                    pari = pari+'Exterieur';
                 var score = fullTimeHomeTeam+' - '+fullTimeAwayTeam;
                 updateUserSelected2(match,pari,score,i);
             } else {

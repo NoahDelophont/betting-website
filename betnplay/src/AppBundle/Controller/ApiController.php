@@ -638,7 +638,7 @@ class ApiController extends Controller
             }
         }
 
-        return $this->render('home/elements/bets_followers.html.twig',array("bets_followers" => $bets));
+        return $this->render('home/home.html.twig',array("bets_followers" => $bets,"followers" => array()));
     }
     
     

@@ -7,6 +7,8 @@
             {% set placeholder = "Search for bet" %}
         {% elseif users is defined %}
             {% set placeholder = "Search user" %}
+        {% else %}
+            {% set placeholder = "" %}
         {% endif %}
 
         <div class="col-md-8">
@@ -129,8 +131,23 @@
                             <hr/>
                         {% endfor %}
                     {%  endif %}
-                {%  endif %}
-
+                    {% elseif followers is defined %}
+                        {% for bet in bets_followers %}
+                            {% if bet is defined %}
+                                <div class="row listElt" style="cursor:pointer;" >
+                                    <div class="col-md-8 Pari">
+                                        <div class="row">
+                                            <div class="col-md-12 col-md-offset-1 NomChampionnat">
+                                                {{ bet['username'] }} a parié sur le match <strong>{{ bet['teams'][0] }} - {{ bet['teams'][0] }}</strong> pour une victoire de
+                                                    {% if bet['pari'] == 0 %}{{ bet['teams'][0] }}{% else %}{{ bet['teams'][0] }}{% endif %}.
+                                                <strong>{% if bet['pari'] == 1 %}Il a gagné. {% elseif bet['pari'] == -1 %}Il a perdu. {% else %}Le match n'a pas encore eu lieu.{% endif %}</strong>
+                                            </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
 
             </div>
 

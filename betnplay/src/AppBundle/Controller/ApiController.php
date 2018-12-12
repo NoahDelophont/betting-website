@@ -146,7 +146,6 @@ class ApiController extends Controller
         $em->flush();
 
 
-
         return $this->render(
             'home/home.html.twig',
             array("matches" => $matches,"homepage"=>true)

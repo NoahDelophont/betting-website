@@ -26,36 +26,54 @@
         <button id="follow">Follow this player</button>
     </div>
 
-    {% for i in 1..3 %}
-        <div class="row listPari" id="{#{{ matches["matches"][i]['id'] }}#}" style="cursor:pointer; margin-left: 1px;" onclick="{#{{ functionJs }}#}" >
-            <div class="col-md-12 PariPasse">
-                <!--<div class="row">
-                    <div class="col-md-12 col-md-offset-1 NomChampionnat">
-                        {#{{ matches['competition']['name'] }}#}
+    {% if fstUserBets is defined %}
+        {% set n = fstUserBets|length-1 %}
+        {% if n>=0 %}
+            {% for i in 0..3 %}
+                {% if i<=n %}
+                    <div class="row listPari" id="{#{{ matches["matches"][i]['id'] }}#}" style="cursor:pointer; margin-left: 1px;" onclick="{#{{ functionJs }}#}" >
+                        <div class="col-md-12 PariPasse">
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1 text-center Teams">
+                                    <strong> {{ fstUserBets[i]["homeTeam"] }} - {{ fstUserBets[i]["awayTeam"] }} </strong>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if fstUserBets[i]["team"]==0 %}
+                                        Pari : Victoire
+                                    {% elseif fstUserBets[i]["team"]==1 %}
+                                        Pari : Nul
+                                    {% elseif fstUserBets[i]["team"]==2 %}
+                                        Pari : Défaite
+                                    {% else %}
+                                        Pari : Victoire, Défaite ou Nul
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-3 RealScore">
+                                    Real score : {{ fstUserBets[i]["fullTimeHomeTeam"] }} - {{ fstUserBets[i]["fullTimeAwayTeam"] }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-1 NomEquipe">
-                        {#{{ matches["matches"][i]['homeTeam']['name'] }} - {{ matches["matches"][i]['awayTeam']['name'] }}#}
+                {% else %}
+                    <div class="row listPari" id="{#{{ matches["matches"][i]['id'] }}#}" style="visibility: hidden;cursor:pointer; margin-left: 1px;" onclick="{#{{ functionJs }}#}" >
+                        <div class="col-md-12 PariPasse">
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1 text-center Teams">
+                                    <strong></strong>
+                                </div>
+                                <div class="col-md-3">
+                                        Pari : Victoire, Défaite ou Nul
+                                </div>
+                                <div class="col-md-3 RealScore">
+                                    Real score :
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-md-offset-2">
-                        {#{{ dateAffichee }}#}
-                    </div>
-                </div>-->
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1 text-center Teams">
-                        <strong> Team A - Team B </strong>
-                    </div>
-                    <div class="col-md-3">
-                        Pari : Victoire, Défaite ou Nul
-                    </div>
-                    <div class="col-md-3 RealScore">
-                        Real score : 2 - 1
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
 
 
 </div>

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Bet;
+use AppBundle\Entity\Follow;
 use AppBundle\Entity\Game;
 use AppBundle\Entity\LastUpdated;
 use AppBundle\Entity\User;
@@ -214,15 +215,7 @@ class ApiController extends Controller
     public function requestUsersAction($user) {
         $em = $this->getDoctrine()->getManager();
 
-        
-
-        $repository = $em->getRepository('AppBundle:User');
-        $query = $repository->createQueryBuilder('u')
-            ->where('u.username LIKE :user')
-            ->setParameter('user', '%'.$user.'%')
-            ->getQuery();
-        $users = $query->getResult();
-        $result = $this->convertUserArrayToArray($users);
+        $result = getUserInfo($user);
 
         return new JsonResponse($result);
     }
@@ -383,23 +376,53 @@ class ApiController extends Controller
     }
 
     public function getUserInfo($idUser) {
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $betsWin = count($bdd_bet->findBy(array("win"=>1,"id"=>$idUser)));
+        $betsLost = count($bdd_bet->findBy(array("win"=>-1,"id"=>$idUser)));
 
+        return array("win"=>$betsWin,"lost"=>$betsLost);
     }
 
     /**
      * @Route("/users", name="usersAction")
      */
-    /**public function usersAction() {
+    public function usersAction() {
 
+        $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
         $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+
         $users = $bdd_user->findAll();
+
         $result = $this->convertUserArrayToArray($users);
+
+
+        $fstUser = null;
+        $fstUserBets = array();
+        if(count($result)>0) {
+            $fstUser = $this->getUserInfo($result[0]["id"]);
+            $bets = $bdd_bet->findById($result[0]["id"]);
+            $i = 0;
+            while(count($bets)-$i>0 && $i<3) {
+                $game = $bdd_game->findOneByApiId($bets[$i]->getIdGame());
+                $gameScore = $game->getScore();
+                $score = json_decode($gameScore, TRUE);
+                $homeTeam = json_decode($game->getHomeTeam(),TRUE)["name"];
+                $awayTeam = json_decode($game->getAwayTeam(),TRUE)["name"];
+                $tmp = array("homeTeam" => $homeTeam,"awayTeam" => $awayTeam,"team"=>$bets[$i]->getTeam(),"win" => $bets[$i]->getWin(),"fullTimeHomeTeam" => $score["fullTime"]["homeTeam"],"fullTimeAwayTeam" => $score["fullTime"]["awayTeam"]);
+                array_push($fstUserBets,$tmp);
+                $i++;
+            }
+        }
+
+
+
 
         return $this->render(
             'home/home.html.twig',
-            array("users" => $result,"first_user"=>$fstUser)
+            array("users" => $result,"fstUser"=>$fstUser,"fstUserBets"=>$fstUserBets)
         );
-    }*/
+    }
     
     /**
      * @Route("/fiche", name="fiche_user")
@@ -435,7 +458,7 @@ class ApiController extends Controller
     }
 
     /**
-     * @Route("/ok/{idMatch}", name="betaction")
+     * @Route("/ok/{idMatch}", name="coteAction")
      */
     public function CoteAction($idMatch){
 
@@ -527,7 +550,7 @@ class ApiController extends Controller
 
 
     /**
-     * @Route("/test/{userId}", name="betaction")
+     * @Route("/test/{userId}", name="testBetnb")
      */
     public function Betnb($userId){
         $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
@@ -548,15 +571,55 @@ class ApiController extends Controller
     }
 
     /**
-     * @Route("/request/user/{id}", name="allbetrequest")
+     * @Route("/request/user/{id}", name="userrequest")
      */
     public function requestUserInfo($id) {
-        $em = $this->getDoctrine()->getManager();
-        $result = array();
-
+        $result = getUserInfo($id);
+        dump($result);die;
 
         return new JsonResponse($result);
     }
-    
-    /** TEST */
+
+    /**
+     * @Route("/follow/{idUser1}/{idUser2}", name="followAction")
+     */
+    public function followAction($idUser1,$idUser2) {
+        $em = $this->getDoctrine()->getManager();
+
+        if ($idUser1 && $idUser2){
+            $follow = new Follow();
+            $follow->setIdUser1($idUser1);
+            $follow->setIdUser2($idUser2);
+            $em->persist($follow);
+            $em->flush();
+        }
+
+        // redirects to the "homepage" route
+        return $this->redirectToRoute('betpage');
+    }
+
+    /**
+     * @Route("/followersbets", name="followersbetsAction")
+     */
+    public function followersBetsAction(){
+        $user_id = $this->getUser()->getId();
+
+        $followers = $this->getDoctrine()->getRepository('AppBundle:Follow')->getFollowers($user_id);
+
+        $bets = array();
+        foreach ($followers as $follower){
+            $tmps = $this->getDoctrine()->getRepository('AppBundle:Bet')->getThreeLastBets($follower);
+            foreach ($tmps as $tmp){
+                $idMatch = $tmp->getIdGame();
+                $idUser = $tmp->getIdUser();
+                $homeTeam = json_decode($this->getDoctrine()->getRepository('AppBundle:Game')->findOneBy(['apiId' => $idMatch])->getHomeTeam(),true)['name'];
+                $awayTeam = json_decode($this->getDoctrine()->getRepository('AppBundle:Game')->findOneBy(['apiId' => $idMatch])->getAwayTeam(),true)['name'];
+                $teams = [$homeTeam, $awayTeam];
+                $username = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(['id' => $idUser])->getUsername();
+                $bets[] = ['teams'=>$teams,'username'=>$username,'pari'=>$tmp->getTeam(),'résultat'=>$tmp->getWin()];
+            }
+        }
+
+        return $this->render('home/elements/bets_followers.html.twig',array("bets_followers" => $bets));
+    }
 }

@@ -46,7 +46,7 @@ class Bet
     /**
      * @var int
      *
-     * @ORM\Column(name="win", type="integer")
+     * @ORM\Column(name="win", type="integer",nullable = true)
      */
     private $win;
 

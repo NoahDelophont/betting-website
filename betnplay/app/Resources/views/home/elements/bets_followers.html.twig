@@ -1,0 +1,14 @@
+
+{% block body %}
+    {% for bet in bets_followers %}
+        {% if bet is defined %}
+            <div class="row listElt">
+                {{ bet['username'] }} a parié sur le match {{ bet['teams'][0] }} - {{ bet['teams'][0] }} pour une victoire de
+                {% if bet['pari'] == 0 %}{{ bet['teams'][0] }}{% else %}{{ bet['teams'][0] }}{% endif %}.
+                {% if bet['pari'] == 1 %}Il a gagné. {% else %}{% if bet['pari'] == -1 %}Il a perdu. {% else %}Le match n'a pas encore eu lieu.{% endif %}{% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

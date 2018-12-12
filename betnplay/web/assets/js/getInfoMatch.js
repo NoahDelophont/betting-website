@@ -45,12 +45,12 @@ function updateBetSelected(id,competition,team1,team2,d,bet,score=null) {
     }
 }
 
-function userSelected(id) {
+function userSelected(id,wons,losts) {
     var wons = document.getElementById('wons');
     var losts = document.getElementById('losts');
 
-    wons.innerHTML = wons;
-    losts.innerHTML = losts;
+    wons.innerHTML = wons + 'won bets';
+    losts.innerHTML = losts + 'lost bets';
 }
 
 function getInfo(id) {
@@ -121,13 +121,21 @@ function getBetInfo(id) {
 
 function getUserInfo(id) {
     $.ajax({
-        url: ENVIRONNEMENT+'/request/user'+id, dataType: 'json',
+        url: ENVIRONNEMENT+'/request/user/'+id, dataType: 'json',
         type: 'GET',
     }).done(function (response) {
-        var wons = response['']
+        var wons = response['wons'];
+        var losts = response['losts'];
 
+        $.ajax({
+            url: ENVIRONNEMENT+'/request/user/'+id,dataType: 'json',
+            type: 'GET',
+        }).done(function(response2) {
+            userSelected(id,wons,losts);
+        });
     })
 }
+
 
 function matchClicked(elt,bet = "false") {
     if(bet=="false")

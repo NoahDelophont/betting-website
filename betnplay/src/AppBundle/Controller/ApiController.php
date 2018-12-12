@@ -426,7 +426,15 @@ class ApiController extends Controller
         $bdd_game = $this->getDoctrine()->getRepository('AppBundle:Game');
         $bdd_user = $this->getDoctrine()->getRepository('AppBundle:User');
         $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $em = $this->getDoctrine()->getManager();
         $user = $bdd_user->findOneById($id);
+
+        /*$level = $user->getLevel();
+        $realLevel = ($this->level($id))["levelUser"];
+        if($level!=$realLevel) {
+            $user->setLevel($realLevel);
+            $em->flush();
+        }*/
         $result = $this->convertUserToArray($user);
 
 

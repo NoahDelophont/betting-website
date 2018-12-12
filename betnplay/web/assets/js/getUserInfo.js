@@ -17,7 +17,7 @@ function updateUserSelected2(match,pari,score,nb) {
 
     matchBet.innerHTML = match;
     pariVND.innerHTML = pari;
-    realScore.innerHTML = "Score réel: "+score;
+    realScore.innerHTML = score;
 }
 
 function getUserInfo(id) {
@@ -36,14 +36,14 @@ function getUserInfo(id) {
         var fstUserBets = response["fstUserBets"];
         var i;
         for(i=0;i<3;i++) {
-            var homeTeam = fstUserBets[i]["homeTeam"];
-            var awayTeam = fstUserBets[i]["awayTeam"];
-            var team = fstUserBets[i]["team"];
-            var win = fstUserBets[i]["win"];
-            var fullTimeHomeTeam =  fstUserBets[i]["fullTimeHomeTeam"];
-            var fullTimeAwayTeam =  fstUserBets[i]["fullTimeAwayTeam"];
-
             if(i<fstUserBets.length) {
+                var homeTeam = fstUserBets[i]["homeTeam"];
+                var awayTeam = fstUserBets[i]["awayTeam"];
+                var team = fstUserBets[i]["team"];
+                var win = fstUserBets[i]["win"];
+                var fullTimeHomeTeam =  fstUserBets[i]["fullTimeHomeTeam"];
+                var fullTimeAwayTeam =  fstUserBets[i]["fullTimeAwayTeam"];
+
                 var match = homeTeam+' - '+awayTeam;
                 var pari = "Pari: ";
                 if(team==0)
@@ -53,7 +53,7 @@ function getUserInfo(id) {
                 else if(team==2)
                     pari = pari+'Exterieur';
                 var score = fullTimeHomeTeam+' - '+fullTimeAwayTeam;
-                updateUserSelected2(match,pari,score,i);
+                updateUserSelected2(match,pari,"Score réel: "+score,i);
             } else {
                 updateUserSelected2("","","",i);
             }

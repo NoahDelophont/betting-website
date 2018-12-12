@@ -37,6 +37,10 @@ function createList(matches) {
         html = html + '<div class="col-md-6 col-md-offset-1 NomEquipe">' + matches["matches"][i]['homeTeam']['name'] + ' - ' + matches["matches"][i]['awayTeam']['name'] + '</div>';
         html = html + '<div class="col-md-3 col-md-offset-2">';
 
+        var cote = matches["matches"][i]['cote'];
+        var cote1 = cote.split(',');
+        var cote11 = cote1[0].split('{');
+        var cote2 = cote1[2].split('}');
 
         var date1 = matches["matches"][i]['utcDate'].split('-');
         var date1_1 = date1[2].split('T');
@@ -47,9 +51,9 @@ function createList(matches) {
 
         html = html + '</div></div>';
         html = html + '<div class="row">';
-        html = html + '<div class="col-md-3 col-md-offset-1 cote">1.5</div>';
-        html = html + '<div class="col-md-3 cote">1.3</div>';
-        html = html + '<div class="col-md-3 cote">1.4</div>';
+        html = html + '<div class="col-md-3 col-md-offset-1 cote">'+cote11[1]+'</div>';
+        html = html + '<div class="col-md-3 cote">'+cote1[1]+'</div>';
+        html = html + '<div class="col-md-3 cote">'+cote2[0]+'</div>';
         html = html + '</div></div></div><hr/>';
 
         addHtml = addHtml + html;

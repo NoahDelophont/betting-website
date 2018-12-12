@@ -52,6 +52,11 @@
                             {% set date2 = matches["matches"][i]['utcDate']|split('T') %}
                             {% set date3 = date2[1]|split(':') %}
                             {% set dateAffichee =  date1_1[0] ~ '/' ~ date1[1] ~ ' ' ~ date3[0] ~ ':' ~ date3[1]%}
+                            {% set cote = matches["matches"][i]['cote'] %}
+                            {% set cote1 = cote|split(',') %}
+                            {% set cote11 = cote1[0]|split('{') %}
+                            {% set cote2 = cote1[2]|split('}') %}
+
 
                             <div class="row listElt" id="{{ matches["matches"][i]['id'] }}" style="cursor:pointer;" onclick="{{ functionJs }}" >
                                 <div class="col-md-8 Pari">
@@ -70,13 +75,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-1 cote">
-                                            1.5
+                                            {{ cote11[1] }}
                                         </div>
                                         <div class="col-md-3 cote">
-                                            1.3
+                                          {{ cote1[1]}}
                                         </div>
                                         <div class="col-md-3 cote">
-                                            1.4
+                                            {{  cote2[0]}}
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +98,7 @@
                     {%  endif %}
                     {% if n>=0 %}
                         {% for i in 0..n %}
-                            <div class="row listElt" id="{{ users[i]['id'] }}" style="cursor:pointer;" onclick="javascript:getUserInfo({{ users[i]['id'] }})">
+                            <div class="row listElt" id="{{ users[i]['id'] }}" style="cursor:pointer;" onclick="javascript:userClicked(this)">
                                 <div class="col-md-8 Pari">
                                     <div class="row">
                                         <div class="col-md-12 col-md-offset-1 NomChampionnat">

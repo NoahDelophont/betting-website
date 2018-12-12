@@ -3,8 +3,8 @@
 {% block body %}
 <div class="user-profile" id="pari-selectionne">
     <img class="avatar" src="#" alt="Profile" />
-    <div class="username"> {{ users[0]['username'] }}</div>
-    <div class="bio text-medium"> <img src="{{ asset('assets/images/stars.png') }}" style="width: 15%"> This player is on the level {{ users[0]['level'] }}</div>
+    <div class="username" id="username"> {{ users[0]['username'] }}</div>
+    <div class="bio text-medium"> <img src="{{ asset('assets/images/stars.png') }}" style="width: 15%"> <span style="all: inherit;" id="userLevel">This player is on the level {{ users[0]['level'] }}</span></div>
 
     {% if fstUser is defined %}
         {% set betWin = fstUser["win"] ~ ' won bets' %}
@@ -26,36 +26,53 @@
         <button id="follow">Follow this player</button>
     </div>
 
-    {% for i in 1..3 %}
-        <div class="row listPari" id="{#{{ matches["matches"][i]['id'] }}#}" style="cursor:pointer; margin-left: 1px;" onclick="{#{{ functionJs }}#}" >
-            <div class="col-md-12 PariPasse">
-                <!--<div class="row">
-                    <div class="col-md-12 col-md-offset-1 NomChampionnat">
-                        {#{{ matches['competition']['name'] }}#}
+    {% if fstUserBets is defined %}
+        {% set n = fstUserBets|length-1 %}
+
+            {% for i in 0..2 %}
+                {% if i<=n %}
+                    <div class="row listPari" id="{#{{ matches["matches"][i]['id'] }}#}" style="cursor:pointer; margin-left: 1px;" onclick="{#{{ functionJs }}#}" >
+                        <div class="col-md-12 PariPasse">
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1 text-center Teams">
+                                    <strong id="matchBet{{ i }}"> {{ fstUserBets[i]["homeTeam"] }} - {{ fstUserBets[i]["awayTeam"] }} </strong>
+                                </div>
+                                <div class="col-md-3" id="pariVND{{ i }}">
+                                    {% if fstUserBets[i]["team"]==0 %}
+                                        Pari : Victoire
+                                    {% elseif fstUserBets[i]["team"]==1 %}
+                                        Pari : Nul
+                                    {% elseif fstUserBets[i]["team"]==2 %}
+                                        Pari : Défaite
+                                    {% else %}
+                                        Pari : Victoire, Défaite ou Nul
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-3 RealScore" id="realScore{{ i }}">
+                                    Real score : {{ fstUserBets[i]["fullTimeHomeTeam"] }} - {{ fstUserBets[i]["fullTimeAwayTeam"] }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-1 NomEquipe">
-                        {#{{ matches["matches"][i]['homeTeam']['name'] }} - {{ matches["matches"][i]['awayTeam']['name'] }}#}
+                {% else %}
+                    <div class="row listPari" id="{#{{ matches["matches"][i]['id'] }}#}" style="cursor:pointer; margin-left: 1px;" onclick="{#{{ functionJs }}#}" >
+                        <div class="col-md-12 PariPasse">
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1 text-center Teams">
+                                    <strong id="matchBet{{ i }}"></strong>
+                                </div>
+                                <div class="col-md-3" id="pariVND{{ i }}">
+
+                                </div>
+                                <div class="col-md-3 RealScore" id="realScore{{ i }}">
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3 col-md-offset-2">
-                        {#{{ dateAffichee }}#}
-                    </div>
-                </div>-->
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-1 text-center Teams">
-                        <strong> Team A - Team B </strong>
-                    </div>
-                    <div class="col-md-3">
-                        Pari : Victoire, Défaite ou Nul
-                    </div>
-                    <div class="col-md-3 RealScore">
-                        Real score : 2 - 1
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
+                {% endif %}
+            {% endfor %}
+    {% endif %}
 
 
 </div>

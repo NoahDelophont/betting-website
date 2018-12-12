@@ -1,4 +1,4 @@
-function updateMatchSelected(id,competition,team1,team2,d) {
+function updateMatchSelected(id,competition,team1,team2,d,cote) {
     var teams = document.getElementById('nomEquipes');
     var comp = document.getElementById('competition');
     var date = document.getElementById('date');
@@ -6,14 +6,20 @@ function updateMatchSelected(id,competition,team1,team2,d) {
     var sousTitre = document.getElementById('sous-titre-match');
     var betAwayTeam = document.getElementById('betAwayTeam');
     var betHomeTeam = document.getElementById('betHomeTeam');
+    var betNul = document.getElementById('betNul');
     var container = (document.getElementById('buttons').childNodes)[1];
+
+    var cote1 = cote.split(',');
+    var cote11 = cote1[0].split('{');
+    var cote2 = cote1[2].split('}');
 
     teams.innerHTML = team1 + ' - ' + team2;
     comp.innerHTML = competition;
     date.innerHTML = d;
     titre.innerHTML = team1 + ' - ' + team2;
-    betAwayTeam.innerHTML = 'Parier sur ' + team2.split(' ')[0]+'<br/>1.4';
-    betHomeTeam.innerHTML = 'Parier sur ' + team1.split(' ')[0]+'<br/>1.5';
+    betAwayTeam.innerHTML = 'Parier sur ' + team2.split(' ')[0]+'<br/>'+cote2[0];
+    betHomeTeam.innerHTML = 'Parier sur ' + team1.split(' ')[0]+'<br/>'+cote11[1];
+    betNul.innerHTML = 'Match Nul<br/>'+cote1[1];
     container.id = "button-wrap-"+id;
     sousTitre.innerHTML = "Pariez sur le match et gagnez plein d'argent !! <img src=\"/assets/images/money-bag.png\"/>";
 }
@@ -53,6 +59,15 @@ function userSelected(id,wons,losts) {
     losts.innerHTML = losts + 'lost bets';
 }
 
+/*
+function userSelected(id) {
+    var wons = document.getElementById('wons');
+    var losts = document.getElementById('losts');
+
+    wons.innerHTML = wons;
+    losts.innerHTML = losts;
+}*/
+
 function getInfo(id) {
 
     $.ajax({
@@ -63,6 +78,8 @@ function getInfo(id) {
 
         var team1 = response['match']['homeTeam']['name'];
         var team2 = response['match']['awayTeam']['name'];
+
+        var cote = response['match']['cote'];
 
         var date = response['match']['utcDate'];
         var tmp = date.split('-');
@@ -81,7 +98,7 @@ function getInfo(id) {
                 updateBetSelected(id,competition,team1,team2,date,data['team']);
             } else {
                 buttons.style.display ="block";
-                updateMatchSelected(id,competition,team1,team2,date);
+                updateMatchSelected(id,competition,team1,team2,date,cote);
             }
         });
     });
@@ -118,7 +135,7 @@ function getBetInfo(id) {
         });
     });
 }
-
+/*
 function getUserInfo(id) {
     $.ajax({
         url: ENVIRONNEMENT+'/request/user/'+id, dataType: 'json',
@@ -134,7 +151,7 @@ function getUserInfo(id) {
             userSelected(id,wons,losts);
         });
     })
-}
+}*/
 
 
 function matchClicked(elt,bet = "false") {

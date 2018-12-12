@@ -18,6 +18,8 @@ class ApiController extends Controller
      * @Route("/", name="homepage")
      */
     public function dataAction(){
+        $id = $this->getUser()->getId();
+        $arr = $this->level($id);
 
         if ($this->container->has('profiler'))
         {
@@ -148,7 +150,7 @@ class ApiController extends Controller
 
         return $this->render(
             'home/home.html.twig',
-            array("matches" => $matches,"homepage"=>true)
+            array("matches" => $matches,"levels" => $arr,"homepage"=>true)
         );
     }
 
@@ -593,6 +595,57 @@ class ApiController extends Controller
 
         return new JsonResponse($result);
     }
+    
+    
+    public function level($id){
+        $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
+        $bets = $bdd_bet->findBy(array("idUser"=>$id));
+        $level = 0;
+        $barre = 10;
+        foreach ($bets as $bet){
+            if($bet->getWin() == -1 ){
+                $level -= 0.5;
+            }
+            elseif($bet->getWin() == 1){
+                $level ++;
+            }
+        }
+        if($level < 0){
+            $levelUser = "Débutant";
+        }
+        else if($level < 10){
+            $levelUser = "Débutant";
+        }
+        else if($level < 20){
+            $levelUser = "Intermédiaire";
+            $barre = 20;
+        }
+        else if($level <30 ){
+            $levelUser = "Semi-Pro";
+            $barre = 30;
+        }
+        else if($level < 40){
+            $levelUser = "Pro";
+            $barre = 40;
+        }
+        else if ($level < 60 ){
+            $levelUser = "Expert";
+            $barre = 60;
+        }
+        else if($level < 80){
+            $levelUser = "Légende";
+            $barre = 80;
+        }
+        else if($level > 100){
+            $levelUser = "Bet Master";
+            $barre = 100;
+        }
+        return (
+            array("levelUser" => $levelUser,"level" => $level, "barre" => $barre)
+        );
+    }
+
+
     
     /** TEST */
 }

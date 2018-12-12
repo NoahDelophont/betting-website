@@ -366,8 +366,8 @@ class ApiController extends Controller
 
     public function getUserInfo($idUser) {
         $bdd_bet = $this->getDoctrine()->getRepository('AppBundle:Bet');
-        $betsWin = count($bdd_bet->findBy(array("win"=>1,"id"=>$idUser)));
-        $betsLost = count($bdd_bet->findBy(array("win"=>-1,"id"=>$idUser)));
+        $betsWin = count($bdd_bet->findBy(array("win"=>1,"idUser"=>$idUser)));
+        $betsLost = count($bdd_bet->findBy(array("win"=>-1,"idUser"=>$idUser)));
 
         return array("win"=>$betsWin,"lost"=>$betsLost);
     }
@@ -384,11 +384,11 @@ class ApiController extends Controller
         $result = $this->convertUserArrayToArray($users);
 
 
-        $fstUser = null;
+        $fstUser = array();
         $fstUserBets = array();
         if(count($result)>0) {
             $fstUser = $this->getUserInfo($result[0]["id"]);
-            $bets = $bdd_bet->findById($result[0]["id"]);
+            $bets = $bdd_bet->findByIdUser($result[0]["id"]);
             $i = 0;
             while(count($bets)-$i>0 && $i<3) {
                 $game = $bdd_game->findOneByApiId($bets[$i]->getIdGame());
@@ -427,7 +427,7 @@ class ApiController extends Controller
         $fstUserBets = array();
 
         $fstUser = $this->getUserInfo($result["id"]);
-        $bets = $bdd_bet->findById($result["id"]);
+        $bets = $bdd_bet->findByIdUser($result["id"]);
         $i = 0;
         while(count($bets)-$i>0 && $i<3) {
             $game = $bdd_game->findOneByApiId($bets[$i]->getIdGame());

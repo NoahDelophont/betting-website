@@ -1,3 +1,8 @@
+var follow = document.getElementById('follow');
+follow.onclick = function() {
+    window.location.href = followString;
+};
+
 function updateUserSelected1(username,level,nbLost,nbWin) {
     var name = document.getElementById('username');
     var userLevel = document.getElementById('userLevel');
@@ -22,10 +27,12 @@ function updateUserSelected2(match,pari,score,nb) {
 
 function getUserInfo(id) {
 
+    var str = id;
     $.ajax({
         url: ENVIRONNEMENT+'/users/'+id,dataType: 'json',
         type: 'GET',
     }).done(function(response) {
+        followString = ENVIRONNEMENT+"/follow/"+str;
         var username = response["users"]['username'];
         var level = response["users"]['level'];
         var id = response["users"]['id'];

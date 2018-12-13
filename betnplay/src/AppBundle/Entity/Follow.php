@@ -44,7 +44,7 @@ class Follow
 
     public function getIdUser1()
     {
-        return $this->idUser1();
+        return $this->idUser1;
     }
 
     public function setIdUser2($id)
@@ -56,7 +56,7 @@ class Follow
 
     public function getIdUser2()
     {
-        return $this->idUser2();
+        return $this->idUser2;
     }
 
 }

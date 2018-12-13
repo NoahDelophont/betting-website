@@ -599,9 +599,10 @@ class ApiController extends Controller
     }
 
     /**
-     * @Route("/follow/{idUser1}/{idUser2}", name="followAction")
+     * @Route("/follow/{idUser2}", name="followAction")
      */
-    public function followAction($idUser1,$idUser2) {
+    public function followAction($idUser2) {
+        $idUser1 = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
 
         if ($idUser1 && $idUser2){
@@ -626,7 +627,7 @@ class ApiController extends Controller
 
         $bets = array();
         foreach ($followers as $follower){
-            $tmps = $this->getDoctrine()->getRepository('AppBundle:Bet')->getThreeLastBets($follower);
+            $tmps = $this->getDoctrine()->getRepository('AppBundle:Bet')->getFifteenLastBets($follower->getIdUser2());
             foreach ($tmps as $tmp){
                 $idMatch = $tmp->getIdGame();
                 $idUser = $tmp->getIdUser();
@@ -634,7 +635,7 @@ class ApiController extends Controller
                 $awayTeam = json_decode($this->getDoctrine()->getRepository('AppBundle:Game')->findOneBy(['apiId' => $idMatch])->getAwayTeam(),true)['name'];
                 $teams = [$homeTeam, $awayTeam];
                 $username = $this->getDoctrine()->getRepository('AppBundle:User')->findOneBy(['id' => $idUser])->getUsername();
-                $bets[] = ['teams'=>$teams,'username'=>$username,'pari'=>$tmp->getTeam(),'résultat'=>$tmp->getWin()];
+                array_push($bets,array('teams'=>$teams,'username'=>$username,'pari'=>$tmp->getTeam(),'résultat'=>$tmp->getWin()));
             }
         }
 

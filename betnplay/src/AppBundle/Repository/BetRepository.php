@@ -25,4 +25,19 @@ class BetRepository extends \Doctrine\ORM\EntityRepository
     }
 
 
+    public function getFifteenLastBets($user){
+
+        $em = $this->getEntityManager();
+        $repository = $em->getRepository('AppBundle:Bet');
+        $query = $repository->createQueryBuilder('m')
+            ->where("m.idUser = :u")
+            ->setMaxResults(30)
+            ->setParameter('u',$user)
+            ->getQuery();
+        $result = $query->getResult();
+
+        return $result;
+    }
+
+
 }

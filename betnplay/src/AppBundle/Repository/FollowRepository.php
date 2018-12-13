@@ -16,7 +16,6 @@ class FollowRepository extends \Doctrine\ORM\EntityRepository
         $repository = $em->getRepository('AppBundle:Follow');
         $query = $repository->createQueryBuilder('f')
             ->where("f.idUser1 = :u")
-            ->orWhere("f.idUser2 = :u")
             ->setParameter('u',$user)
             ->getQuery();
         $result = $query->getResult();
